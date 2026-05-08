@@ -40,7 +40,7 @@
 
   <div class="flex h-screen">
 
-    <!-- Sidebar (unchanged) -->
+    <!-- Sidebar -->
     <div class="w-72 bg-gray-900 border-r border-gray-800 flex flex-col">
       <div class="p-5 border-b border-gray-800 flex items-center gap-3">
         <div class="w-9 h-9 bg-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">C</div>
@@ -120,6 +120,7 @@
           <h1 class="text-5xl font-bold mt-2">What Citizens <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Actually Think</span></h1>
         </div>
 
+        <!-- Stats -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           <div class="bg-gray-900 rounded-3xl p-6 border border-gray-800">
             <p class="text-gray-400 text-sm">Posts Analyzed Today</p>
@@ -145,8 +146,74 @@
     </div>
   </div>
 
-  <!-- Compare & Plans Modals (unchanged) -->
-  <!-- ... (Compare and Plans modals remain the same as previous version) ... -->
+  <!-- Compare Modal -->
+  <div id="compare-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+    <div class="bg-gray-900 w-full max-w-5xl rounded-3xl max-h-[95vh] overflow-y-auto">
+      <div class="p-8">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <h2 class="text-3xl font-bold">X CITIZENPULSE FINDING — ARAB-ISRAELI NORMALIZATION</h2>
+            <p class="text-cyan-400 mt-2 text-lg">54% of Arab citizens support normalization on X — driven by Gulf youth, economic pragmatism, and fatigue with proxy wars.</p>
+          </div>
+          <button onclick="closeCompareModal()" class="text-4xl text-gray-400 hover:text-white">×</button>
+        </div>
+        <!-- Score Comparison Chart -->
+        <div class="bg-gray-950 rounded-3xl p-8 mb-8">
+          <h3 class="text-xl font-semibold mb-6">Score Comparison</h3>
+          <div class="h-80 flex items-end gap-12">
+            <div class="flex-1 text-center">
+              <div class="h-52 bg-cyan-500 rounded-t-xl flex items-end justify-center text-black font-bold text-4xl">54%</div>
+              <p class="mt-3 font-medium">CitizenPulse (X/Grok)</p>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-20 bg-gray-600 rounded-t-xl"></div>
+              <p class="mt-3 text-gray-400">Arab Barometer 2023</p>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-28 bg-gray-600 rounded-t-xl"></div>
+              <p class="mt-3 text-gray-400">Pew Research 2024</p>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="h-22 bg-gray-600 rounded-t-xl"></div>
+              <p class="mt-3 text-gray-400">Western Media Avg</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plans Modal -->
+  <div id="plans-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+    <div class="bg-gray-900 w-full max-w-6xl rounded-3xl max-h-[95vh] overflow-y-auto">
+      <div class="p-8">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-4xl font-bold">Choose Your Plan</h2>
+          <button onclick="closePlansModal()" class="text-4xl text-gray-400 hover:text-white">×</button>
+        </div>
+        <!-- Plans content (Free, Plus, Pro) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="plan-card bg-gray-950 border border-gray-700 rounded-3xl p-6">
+            <h3 class="text-2xl font-semibold">Free</h3>
+            <p class="text-5xl font-bold mt-4">€0</p>
+            <button class="w-full mt-10 py-4 bg-gray-800 rounded-2xl">Current Plan</button>
+          </div>
+          <div class="plan-card bg-gray-950 border border-cyan-500 rounded-3xl p-6 relative">
+            <div class="absolute -top-3 right-6 bg-cyan-500 text-black text-xs font-bold px-4 py-1 rounded-full">RECOMMENDED</div>
+            <h3 class="text-2xl font-semibold">Plus</h3>
+            <p class="text-5xl font-bold mt-4">€0</p>
+            <button onclick="alert('Registration flow opening...')" class="w-full mt-10 py-4 bg-cyan-500 text-black font-semibold rounded-2xl">Register with Email</button>
+          </div>
+          <div class="plan-card bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-6 text-black relative">
+            <div class="absolute -top-3 right-6 bg-black/30 text-white text-xs font-bold px-4 py-1 rounded-full">COMING SOON</div>
+            <h3 class="text-2xl font-semibold">Pro</h3>
+            <p class="text-5xl font-bold mt-4 blur-effect">€5.99</p>
+            <button class="w-full mt-10 py-4 bg-black/80 text-white font-semibold rounded-2xl cursor-not-allowed">Coming Soon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     const topicsData = [
@@ -180,22 +247,20 @@
               </div>
               <p class="text-gray-400 text-sm mt-6">${topic.summary}</p>
 
-              <!-- Overview Insights -->
-              <div class="mt-6 text-sm text-gray-300">
+              <div class="mt-6 text-sm">
                 <strong class="text-cyan-400">Key Insights:</strong>
-                <ul class="list-disc list-inside mt-2 space-y-1">
+                <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300">
                   ${topic.insights.map(i => `<li>${i}</li>`).join('')}
                 </ul>
               </div>
             </div>
 
-            <!-- Action Buttons -->
             <div class="p-6 pt-0 border-t border-gray-700 flex gap-3">
               <button onclick="shareToX('${topic.title}', ${topic.sentiment})" 
                       class="flex-1 py-3 bg-gray-800 hover:bg-gray-700 rounded-2xl text-sm flex items-center justify-center gap-2">
-                <i class="fab fa-x-twitter"></i> Share
+                <i class="fab fa-x-twitter"></i> Share on X
               </button>
-              <button onclick="unlockFullAnalysis(this)" 
+              <button onclick="unlockFullAnalysis()" 
                       class="flex-1 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-medium rounded-2xl text-sm">
                 Sign up to unlock full analysis
               </button>
@@ -205,29 +270,35 @@
       });
     }
 
-    function unlockFullAnalysis(btn) {
-      alert("✅ Plus Plan Required\n\nSign up or upgrade to unlock full deep-dive analysis, PDF export, and shareable reports.");
-      // You can also trigger plans modal here if you want:
-      // document.getElementById('plans-modal').classList.remove('hidden');
+    function unlockFullAnalysis() {
+      alert("Plus Plan Required\n\nRegister or upgrade to unlock full deep-dive analysis, PDF export & shareable 1-pager reports.");
     }
 
     function shareToX(title, sentiment) {
-      const text = `CitizenPulse: ${title} - Current citizen sentiment: ${sentiment}%`;
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+      const text = `CitizenPulse Report: ${title} → Current citizen sentiment: ${sentiment}%`;
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
     }
 
     renderTopics();
 
-    // Compare & Plans handlers (keep as before)
+    // Modal Handlers
     document.getElementById('compare-link').addEventListener('click', (e) => {
       e.preventDefault();
-      alert("Compare modal would open here");
+      document.getElementById('compare-modal').classList.remove('hidden');
     });
+
+    function closeCompareModal() {
+      document.getElementById('compare-modal').classList.add('hidden');
+    }
 
     document.getElementById('plans-link').addEventListener('click', (e) => {
       e.preventDefault();
-      alert("This page says\n\nPlans modal would open here");
+      document.getElementById('plans-modal').classList.remove('hidden');
     });
+
+    function closePlansModal() {
+      document.getElementById('plans-modal').classList.add('hidden');
+    }
   </script>
 </body>
 </html>
