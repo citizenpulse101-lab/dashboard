@@ -47,24 +47,20 @@
       </div>
 
       <nav class="flex-1 overflow-y-auto px-3 space-y-1">
-        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gray-800 text-white">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gray-800 text-white">
           <i class="fas fa-tachometer-alt"></i>
           <span class="font-medium">Overview Dashboard</span>
         </a>
-        <a href="#" id="search-tab" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
-          <i class="fas fa-search"></i>
-          <span>Search Sentiment by Topic or Country</span>
-        </a>
-        <a href="#" id="live-tab" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
+        <a href="live-topic.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
           <i class="fas fa-chart-line"></i>
           <span>Live Topic Sentiment</span>
           <span class="ml-auto bg-cyan-500 text-white text-xs px-2.5 py-0.5 rounded-full">NEW</span>
         </a>
-        <a href="#" id="compare-link" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
+        <a href="compare.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
           <i class="fas fa-balance-scale"></i>
           <span>Compare</span>
         </a>
-        <a href="#" id="plans-link" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
+        <a href="plans.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
           <i class="fas fa-gem"></i>
           <span>Plans</span>
         </a>
@@ -130,63 +126,6 @@
     </div>
   </div>
 
-  <!-- Search Modal -->
-  <div id="search-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-    <div class="bg-gray-900 w-full max-w-lg rounded-3xl p-8">
-      <h2 class="text-2xl font-bold mb-6">Search Sentiment by Topic or Country</h2>
-      <input id="modal-search" type="text" placeholder="Type topic or country..." class="w-full bg-gray-800 border border-gray-700 rounded-2xl py-4 px-5 text-sm focus:outline-none focus:border-cyan-500">
-      <div id="search-results" class="mt-4 max-h-96 overflow-auto"></div>
-    </div>
-  </div>
-
-  <!-- Live Topic Modal -->
-  <div id="live-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-    <div class="bg-gray-900 w-full max-w-4xl rounded-3xl p-8">
-      <h2 class="text-2xl font-bold mb-2">Live Topic Sentiment</h2>
-      <p class="text-emerald-400">Israel-Lebanon Direct Talks under US Leadership</p>
-      <div class="mt-8 text-center text-gray-400">Real-time sentiment trend and live data would be displayed here.</div>
-      <button onclick="closeLiveModal()" class="mt-8 w-full py-4 bg-gray-800 rounded-2xl">Close</button>
-    </div>
-  </div>
-
-  <!-- Compare Modal -->
-  <div id="compare-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-    <div class="bg-gray-900 w-full max-w-5xl rounded-3xl p-8 max-h-[95vh] overflow-y-auto">
-      <h2 class="text-3xl font-bold mb-6">Citizen Narratives vs Official Narratives</h2>
-      <p class="text-gray-300">This section highlights the gap between what citizens are saying on X and what governments and traditional media claim.</p>
-      <div class="mt-8 text-center text-gray-400">Detailed comparison would be shown here.</div>
-    </div>
-  </div>
-
-  <!-- Plans Modal -->
-  <div id="plans-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-    <div class="bg-gray-900 w-full max-w-6xl rounded-3xl p-8 max-h-[95vh] overflow-y-auto">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="text-4xl font-bold">Choose Your Plan</h2>
-        <button onclick="closePlansModal()" class="text-4xl text-gray-400 hover:text-white">×</button>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-gray-950 border border-gray-700 rounded-3xl p-6">
-          <h3 class="text-2xl font-semibold">Free</h3>
-          <p class="text-5xl font-bold mt-4">€0</p>
-          <button class="w-full mt-10 py-4 bg-gray-800 rounded-2xl">Current Plan</button>
-        </div>
-        <div class="bg-gray-950 border border-cyan-500 rounded-3xl p-6 relative">
-          <div class="absolute -top-3 right-6 bg-cyan-500 text-black text-xs font-bold px-4 py-1 rounded-full">RECOMMENDED</div>
-          <h3 class="text-2xl font-semibold">Plus</h3>
-          <p class="text-5xl font-bold mt-4">€0</p>
-          <button onclick="alert('Registration flow would open here')" class="w-full mt-10 py-4 bg-cyan-500 text-black font-semibold rounded-2xl">Register with Email</button>
-        </div>
-        <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-6 text-black relative">
-          <div class="absolute -top-3 right-6 bg-black/30 text-white text-xs font-bold px-4 py-1 rounded-full">COMING SOON</div>
-          <h3 class="text-2xl font-semibold">Pro</h3>
-          <p class="text-5xl font-bold mt-4 blur-effect">€5.99</p>
-          <button class="w-full mt-10 py-4 bg-black/80 text-white font-semibold rounded-2xl cursor-not-allowed">Coming Soon</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
     const topicsData = [
       { emoji: "🕊️", title: "Arab-Israeli Normalization", category: "GEOPOLITICAL", sentiment: 54, posts: "2.4M", unique: "890K", summary: "Live citizen sentiment across 18 Arab & ME countries vs Israeli public on normalization, peace, and the Abraham Accords.", insights: ["62% 18-34 yrs", "48% 35-54 yrs", "31% 55+ yrs", "54% Arab avg support"] },
@@ -228,30 +167,6 @@
     }
 
     renderTopics();
-
-    // Navigation Tabs
-    document.getElementById('search-tab').addEventListener('click', (e) => {
-      e.preventDefault();
-      document.getElementById('search-modal').classList.remove('hidden');
-    });
-
-    document.getElementById('live-tab').addEventListener('click', (e) => {
-      e.preventDefault();
-      document.getElementById('live-modal').classList.remove('hidden');
-    });
-
-    document.getElementById('compare-link').addEventListener('click', (e) => {
-      e.preventDefault();
-      document.getElementById('compare-modal').classList.remove('hidden');
-    });
-
-    document.getElementById('plans-link').addEventListener('click', (e) => {
-      e.preventDefault();
-      document.getElementById('plans-modal').classList.remove('hidden');
-    });
-
-    function closeCompareModal() { document.getElementById('compare-modal').classList.add('hidden'); }
-    function closePlansModal() { document.getElementById('plans-modal').classList.add('hidden'); }
   </script>
 </body>
 </html>
