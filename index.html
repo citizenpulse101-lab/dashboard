@@ -32,7 +32,10 @@
       0% { transform: translateX(-100%); }
       100% { transform: translateX(400%); }
     }
-    .topic-card { transition: all 0.3s ease; }
+    .topic-card { 
+      transition: all 0.3s ease; 
+      height: 100%; /* Ensures uniform height */
+    }
     .topic-card:hover { transform: translateY(-6px); }
   </style>
 </head>
@@ -40,7 +43,7 @@
 
   <div class="flex h-screen">
 
-    <!-- Sidebar -->
+    <!-- Sidebar (unchanged) -->
     <div class="w-72 bg-gray-900 border-r border-gray-800 flex flex-col">
       <div class="p-5 border-b border-gray-800 flex items-center gap-3">
         <div class="w-9 h-9 bg-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">C</div>
@@ -274,8 +277,8 @@
         const color = topic.sentiment > 0 ? 'text-emerald-400' : 'text-red-400';
         
         const html = `
-          <div class="topic-card bg-gray-900 border border-gray-700 rounded-3xl overflow-hidden cursor-pointer">
-            <div class="p-6">
+          <div class="topic-card bg-gray-900 border border-gray-700 rounded-3xl overflow-hidden cursor-pointer flex flex-col">
+            <div class="p-6 flex-1">
               <div class="flex items-start justify-between">
                 <div class="flex items-center gap-3">
                   <span class="text-4xl">${topic.emoji}</span>
@@ -312,7 +315,7 @@
               </div>
             </div>
 
-            <div class="border-t border-gray-700 p-5">
+            <div class="border-t border-gray-700 p-5 mt-auto">
               <button onclick="unlockFullAnalysis()" 
                       class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold rounded-2xl flex items-center justify-center gap-2">
                 Explore full analysis 
