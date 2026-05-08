@@ -134,9 +134,8 @@
   <div id="search-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
     <div class="bg-gray-900 w-full max-w-lg rounded-3xl p-8">
       <h2 class="text-2xl font-bold mb-6">Search Sentiment by Topic or Country</h2>
-      <input id="modal-search" type="text" placeholder="Type topic or country name..." 
-             class="w-full bg-gray-800 border border-gray-700 rounded-2xl py-4 px-5 text-sm focus:outline-none focus:border-cyan-500">
-      <div id="search-results" class="mt-4 max-h-96 overflow-auto text-sm"></div>
+      <input id="modal-search" type="text" placeholder="Type topic or country..." class="w-full bg-gray-800 border border-gray-700 rounded-2xl py-4 px-5 text-sm focus:outline-none focus:border-cyan-500">
+      <div id="search-results" class="mt-4 max-h-96 overflow-auto"></div>
     </div>
   </div>
 
@@ -145,9 +144,7 @@
     <div class="bg-gray-900 w-full max-w-4xl rounded-3xl p-8">
       <h2 class="text-2xl font-bold mb-2">Live Topic Sentiment</h2>
       <p class="text-emerald-400">Israel-Lebanon Direct Talks under US Leadership</p>
-      <div class="mt-8 p-8 bg-gray-950 rounded-3xl text-center">
-        <p class="text-gray-400">Real-time sentiment visualization and live feed would appear here.</p>
-      </div>
+      <div class="mt-8 text-center text-gray-400">Real-time sentiment trend and live data would be displayed here.</div>
       <button onclick="closeLiveModal()" class="mt-8 w-full py-4 bg-gray-800 rounded-2xl">Close</button>
     </div>
   </div>
@@ -155,14 +152,9 @@
   <!-- Compare Modal -->
   <div id="compare-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
     <div class="bg-gray-900 w-full max-w-5xl rounded-3xl p-8 max-h-[95vh] overflow-y-auto">
-      <div class="flex justify-between items-start mb-6">
-        <h2 class="text-3xl font-bold">Citizen Narratives vs Official Narratives</h2>
-        <button onclick="closeCompareModal()" class="text-4xl text-gray-400 hover:text-white">×</button>
-      </div>
-      <p class="text-gray-300">This section highlights the gap between what citizens are saying on X and what governments + traditional media claim.</p>
-      <div class="mt-8 text-center text-gray-400">
-        Detailed comparison charts and analysis would be displayed here.
-      </div>
+      <h2 class="text-3xl font-bold mb-6">Citizen Narratives vs Official Narratives</h2>
+      <p class="text-gray-300">This section highlights the gap between what citizens are saying on X and what governments and traditional media claim.</p>
+      <div class="mt-8 text-center text-gray-400">Detailed comparison would be shown here.</div>
     </div>
   </div>
 
@@ -183,7 +175,7 @@
           <div class="absolute -top-3 right-6 bg-cyan-500 text-black text-xs font-bold px-4 py-1 rounded-full">RECOMMENDED</div>
           <h3 class="text-2xl font-semibold">Plus</h3>
           <p class="text-5xl font-bold mt-4">€0</p>
-          <button onclick="alert('Email registration would open here')" class="w-full mt-10 py-4 bg-cyan-500 text-black font-semibold rounded-2xl">Register with Email</button>
+          <button onclick="alert('Registration flow would open here')" class="w-full mt-10 py-4 bg-cyan-500 text-black font-semibold rounded-2xl">Register with Email</button>
         </div>
         <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-6 text-black relative">
           <div class="absolute -top-3 right-6 bg-black/30 text-white text-xs font-bold px-4 py-1 rounded-full">COMING SOON</div>
@@ -237,7 +229,7 @@
 
     renderTopics();
 
-    // Navigation Handlers
+    // Navigation Tabs
     document.getElementById('search-tab').addEventListener('click', (e) => {
       e.preventDefault();
       document.getElementById('search-modal').classList.remove('hidden');
