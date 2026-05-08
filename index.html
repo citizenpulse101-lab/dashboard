@@ -126,19 +126,70 @@
     </div>
   </div>
 
+  <!-- Deep Dive Modal -->
+  <div id="deep-dive-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+    <div class="bg-gray-900 w-full max-w-3xl rounded-3xl max-h-[90vh] overflow-y-auto">
+      <div class="p-8">
+        <div class="flex justify-between items-start mb-6">
+          <div id="modal-topic-title" class="text-2xl font-bold"></div>
+          <button onclick="closeDeepDive()" class="text-3xl text-gray-400 hover:text-white">×</button>
+        </div>
+        
+        <div id="modal-content" class="space-y-8">
+          <!-- Dynamic content injected by JS -->
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-gray-700">
+          <button onclick="showPlans()" 
+                  class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl">
+            Upgrade to Plus Plan to Unlock Full Report + PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const topicsData = [
-      { emoji: "🕊️", title: "Arab-Israeli Normalization", category: "GEOPOLITICAL", sentiment: 54, posts: "2.4M", unique: "890K", summary: "Live citizen sentiment across 18 Arab & ME countries vs Israeli public on normalization, peace, and the Abraham Accords.", insights: ["62% 18-34 yrs", "48% 35-54 yrs", "31% 55+ yrs", "54% Arab avg support"] },
-      { emoji: "🇮🇷", title: "US-Israel vs Iran & the Islamic Regime", category: "INTERNAL AFFAIRS", sentiment: -67, posts: "980K", unique: "310K", summary: "Inside Iran vs diaspora — citizen dissent vs IRGC narrative.", insights: ["74% 18-34 yrs", "89% Diaspora", "-67% Iranians oppose regime"] },
-      { emoji: "🛸", title: "White House UFO Files", category: "GOVERNMENT TRANSPARENCY", sentiment: 68, posts: "1.85M", unique: "720K", summary: "President Trump officially confirms release of White House UFO files.", insights: ["68% Support full disclosure", "82% 18-34 age group"] }
+      { 
+        emoji: "🕊️", 
+        title: "Arab-Israeli Normalization", 
+        category: "GEOPOLITICAL", 
+        sentiment: 54, 
+        posts: "2.4M", 
+        unique: "890K", 
+        summary: "Live citizen sentiment across 18 Arab & ME countries vs Israeli public on normalization, peace, and the Abraham Accords.",
+        insights: ["62% 18-34 yrs support", "48% 35-54 yrs", "Economic benefits are main driver", "54% Arab avg support"]
+      },
+      { 
+        emoji: "🇮🇷", 
+        title: "US-Israel vs Iran & the Islamic Regime", 
+        category: "INTERNAL AFFAIRS", 
+        sentiment: -67, 
+        posts: "980K", 
+        unique: "310K", 
+        summary: "Inside Iran vs diaspora — citizen dissent vs IRGC narrative, public opinion on regime collapse.",
+        insights: ["74% 18-34 yrs", "89% Diaspora", "-67% Iranians oppose regime", "HIGH Suppression index"]
+      },
+      { 
+        emoji: "🛸", 
+        title: "White House UFO Files", 
+        category: "GOVERNMENT TRANSPARENCY", 
+        sentiment: 68, 
+        posts: "1.85M", 
+        unique: "720K", 
+        summary: "President Trump officially confirms release of White House UFO files. Major public interest in disclosure.",
+        insights: ["68% Support full disclosure", "82% 18-34 age group", "Strong demand for unredacted files"]
+      }
     ];
 
     function renderTopics() {
       const container = document.getElementById('topic-grid');
       container.innerHTML = '';
 
-      topicsData.forEach((topic) => {
+      topicsData.forEach((topic, index) => {
         const color = topic.sentiment > 0 ? 'text-emerald-400' : 'text-red-400';
+        
         const html = `
           <div class="topic-card rounded-3xl overflow-hidden cursor-pointer flex flex-col h-full">
             <div class="p-6 flex-1">
@@ -155,15 +206,48 @@
               <p class="text-gray-400 text-sm mt-4">${topic.summary}</p>
             </div>
             <div class="border-t border-gray-700 p-5 mt-auto">
-              <button onclick="unlockFullAnalysis()" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl">Explore full analysis →</button>
+              <button onclick="showDeepDive(${index})" 
+                      class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl">
+                Explore full analysis →
+              </button>
             </div>
           </div>`;
         container.innerHTML += html;
       });
     }
 
-    function unlockFullAnalysis() {
-      alert("Plus Plan Required\n\nRegister or upgrade to unlock full deep-dive analysis.");
+    function showDeepDive(index) {
+      const topic = topicsData[index];
+      document.getElementById('modal-topic-title').innerHTML = `
+        ${topic.emoji} ${topic.title}
+      `;
+      
+      document.getElementById('modal-content').innerHTML = `
+        <div class="bg-gray-950 rounded-2xl p-6">
+          <h4 class="text-cyan-400 font-semibold mb-4">Deep Dive Analysis</h4>
+          <p class="text-gray-300">${topic.summary}</p>
+        </div>
+        <div class="mt-6">
+          <h4 class="font-semibold text-emerald-400 mb-3">Key Insights</h4>
+          <ul class="space-y-3 text-sm text-gray-300">
+            ${topic.insights.map(i => `<li class="flex gap-2"><span class="text-emerald-400">•</span> ${i}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="mt-8 p-6 bg-gray-950 rounded-2xl text-center">
+          <p class="text-gray-400">Full report, charts, PDF export, and historical trends available in <strong>Plus Plan</strong></p>
+        </div>
+      `;
+      
+      document.getElementById('deep-dive-modal').classList.remove('hidden');
+    }
+
+    function closeDeepDive() {
+      document.getElementById('deep-dive-modal').classList.add('hidden');
+    }
+
+    function showPlans() {
+      closeDeepDive();
+      alert("Plans page would open here.\n\nPlease register with email for Plus access.");
     }
 
     renderTopics();
