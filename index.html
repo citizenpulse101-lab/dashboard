@@ -156,7 +156,6 @@
           </div>
           <button onclick="closeCompareModal()" class="text-4xl text-gray-400 hover:text-white">×</button>
         </div>
-        <!-- Score Comparison -->
         <div class="bg-gray-950 rounded-3xl p-8 mb-8">
           <h3 class="text-xl font-semibold mb-6">Score Comparison</h3>
           <div class="h-80 flex items-end gap-12">
@@ -215,9 +214,36 @@
 
   <script>
     const topicsData = [
-      { emoji: "🇮🇱", title: "Israel-Lebanon Direct Talks under US Leadership", category: "GEOPOLITICAL", sentiment: -47, posts: "1.2M", trend: "↓ Declining", summary: "Strong domestic fatigue with calls for direct US mediation.", insights: ["Domestic sentiment highly negative in both countries", "US leadership viewed more favorably"] },
-      { emoji: "🕊️", title: "Arab-Israeli Normalization", category: "PEACE PROCESS", sentiment: 54, posts: "890K", trend: "↑ Rising", summary: "Moderate positive momentum, especially among youth.", insights: ["Youth (18-34) support at 68%", "Economic benefits are main driver"] },
-      { emoji: "🇮🇷", title: "Iran Regime Sentiment", category: "INTERNAL AFFAIRS", sentiment: -67, posts: "654K", trend: "↓ Declining", summary: "Strong and widespread opposition.", insights: ["Regime approval at historic lows", "Women and Gen-Z leading sentiment"] }
+      { 
+        emoji: "🕊️", 
+        title: "Arab-Israeli Normalization", 
+        category: "GEOPOLITICAL", 
+        sentiment: 54, 
+        posts: "2.4M", 
+        unique: "890K", 
+        summary: "Live citizen sentiment across 18 Arab & ME countries vs Israeli public on normalization, peace, and the Abraham Accords.",
+        insights: ["62% 18-34 yrs", "48% 35-54 yrs", "31% 55+ yrs", "54% Arab avg support"]
+      },
+      { 
+        emoji: "🇮🇷", 
+        title: "US-Israel vs Iran & the Islamic Regime", 
+        category: "INTERNAL AFFAIRS", 
+        sentiment: -67, 
+        posts: "980K", 
+        unique: "310K", 
+        summary: "Inside Iran vs diaspora — citizen dissent vs IRGC narrative, public opinion on regime collapse & normalization.",
+        insights: ["74% 18-34 yrs", "89% Diaspora", "-67% Iranians oppose regime", "HIGH Suppression index"]
+      },
+      { 
+        emoji: "🛸", 
+        title: "White House UFO Files", 
+        category: "GOVERNMENT TRANSPARENCY", 
+        sentiment: 68, 
+        posts: "1.85M", 
+        unique: "720K", 
+        summary: "President Trump officially confirms release of White House UFO files. Major public interest in government disclosure and UAP transparency.",
+        insights: ["68% Support full disclosure", "82% 18-34 age group", "Strong demand for unredacted documents", "Mixed skepticism vs excitement"]
+      }
     ];
 
     function renderTopics() {
@@ -228,39 +254,49 @@
         const color = topic.sentiment > 0 ? 'text-emerald-400' : 'text-red-400';
         
         const html = `
-          <div class="topic-card bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden cursor-pointer">
+          <div class="topic-card bg-gray-900 border border-gray-700 rounded-3xl overflow-hidden cursor-pointer">
             <div class="p-6">
-              <div class="flex justify-between items-start">
-                <span class="text-5xl">${topic.emoji}</span>
-                <span class="text-xs font-medium tracking-widest text-gray-400">${topic.category}</span>
+              <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="text-4xl">${topic.emoji}</span>
+                  <span class="px-3 py-1 text-xs font-medium bg-emerald-500/10 text-emerald-400 rounded-full flex items-center gap-1">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> LIVE
+                  </span>
+                </div>
+                <span class="text-xs font-medium text-gray-400">${topic.category}</span>
               </div>
-              <h4 class="font-semibold text-lg mt-6 leading-tight">${topic.title}</h4>
-              
-              <div class="mt-8 flex items-end justify-between">
-                <span class="text-6xl font-bold ${color}">${topic.sentiment}%</span>
-                <div class="text-right">
-                  <p class="text-sm text-gray-400">${topic.posts} posts</p>
-                  <p class="text-sm ${topic.trend.includes('Rising') ? 'text-emerald-400' : 'text-red-400'}">${topic.trend}</p>
+
+              <h4 class="font-semibold text-xl mt-5 leading-tight">${topic.title}</h4>
+              <p class="text-gray-400 text-sm mt-4 line-clamp-3">${topic.summary}</p>
+
+              <div class="mt-6 grid grid-cols-2 gap-3 text-xs">
+                <div class="bg-gray-800 rounded-2xl p-3">
+                  <p class="text-gray-400">Posts Analyzed</p>
+                  <p class="font-semibold text-lg">${topic.posts}</p>
+                </div>
+                <div class="bg-gray-800 rounded-2xl p-3">
+                  <p class="text-gray-400">Unique Voices</p>
+                  <p class="font-semibold text-lg">${topic.unique}</p>
                 </div>
               </div>
-              <p class="text-gray-400 text-sm mt-6">${topic.summary}</p>
 
-              <div class="mt-6 text-sm">
-                <strong class="text-cyan-400">Key Insights:</strong>
-                <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300">
-                  ${topic.insights.map(i => `<li>${i}</li>`).join('')}
-                </ul>
+              <div class="mt-6">
+                <p class="text-xs uppercase tracking-widest text-gray-400 mb-3">Audience Segments</p>
+                <div class="grid grid-cols-2 gap-2">
+                  ${topic.insights.map((insight) => `
+                    <div class="bg-gray-800/70 rounded-2xl p-3 text-center text-sm">
+                      ${insight}
+                    </div>
+                  `).join('')}
+                </div>
               </div>
             </div>
 
-            <div class="p-6 pt-0 border-t border-gray-700 flex gap-3">
-              <button onclick="shareToX('${topic.title}', ${topic.sentiment})" 
-                      class="flex-1 py-3 bg-gray-800 hover:bg-gray-700 rounded-2xl text-sm flex items-center justify-center gap-2">
-                <i class="fab fa-x-twitter"></i> Share on X
-              </button>
+            <div class="border-t border-gray-700 p-5">
               <button onclick="unlockFullAnalysis()" 
-                      class="flex-1 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-medium rounded-2xl text-sm">
-                Sign up to unlock full analysis
+                      class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold rounded-2xl flex items-center justify-center gap-2">
+                Explore full analysis 
+                <span class="text-xl">→</span>
               </button>
             </div>
           </div>`;
@@ -269,17 +305,12 @@
     }
 
     function unlockFullAnalysis() {
-      alert("Plus Plan Required\n\nRegister or upgrade your plan to unlock full deep-dive analysis, PDF export, and 1-pager reports.");
-    }
-
-    function shareToX(title, sentiment) {
-      const text = `CitizenPulse: ${title} → Current citizen sentiment: ${sentiment}%`;
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
+      alert("Plus Plan Required\n\nRegister or upgrade to unlock full deep-dive analysis, PDF export, and detailed reports.");
     }
 
     renderTopics();
 
-    // Modal Controls
+    // Modal Handlers
     document.getElementById('compare-link').addEventListener('click', (e) => {
       e.preventDefault();
       document.getElementById('compare-modal').classList.remove('hidden');
