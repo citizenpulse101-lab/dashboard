@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live • Israel-Lebanon Direct Talks - CitizenPulse</title>
+  <title>Intelligence Dashboard • Israel-Lebanon Direct Talks - CitizenPulse</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -12,11 +12,13 @@
     .neon-blue { text-shadow: 0 0 15px #22d3ee; }
     .live-dot { animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .section-card { background: #111827; border: 1px solid #334155; }
   </style>
 </head>
-<body class="bg-[#0a0f1c] text-gray-200">
+<body class="bg-[#0a0f1c] text-gray-200 min-h-screen">
 
   <div class="max-w-7xl mx-auto p-8">
+
     <!-- Header -->
     <div class="flex justify-between items-start mb-10">
       <div class="flex items-center gap-5">
@@ -28,121 +30,152 @@
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500"></span>
             </span>
-            LIVE • Grok AI Real-time Analysis
+            LIVE • Grok AI Real-time Citizen Intelligence
           </p>
         </div>
       </div>
-      <a href="index.html" class="text-cyan-400 hover:text-white flex items-center gap-2">
+      <a href="index.html" class="text-cyan-400 hover:text-white flex items-center gap-2 text-lg">
         ← Back to Overview
       </a>
     </div>
 
     <!-- Sentiment Overview -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      <div class="bg-gray-900/80 border border-gray-700 rounded-3xl p-8 text-center">
-        <p class="text-gray-400 text-sm">OVERALL CITIZEN SENTIMENT</p>
+      <div class="section-card rounded-3xl p-8 text-center">
+        <p class="text-gray-400">OVERALL SENTIMENT</p>
         <p class="text-6xl font-bold text-red-400 mt-3">-47%</p>
       </div>
-      <div class="bg-gray-900/80 border border-gray-700 rounded-3xl p-8 text-center">
-        <p class="text-gray-400 text-sm">LEBANESE PUBLIC</p>
+      <div class="section-card rounded-3xl p-8 text-center">
+        <p class="text-gray-400">LEBANESE PUBLIC</p>
         <p class="text-6xl font-bold text-red-400 mt-3">-62%</p>
       </div>
-      <div class="bg-gray-900/80 border border-gray-700 rounded-3xl p-8 text-center">
-        <p class="text-gray-400 text-sm">ISRAELI PUBLIC</p>
+      <div class="section-card rounded-3xl p-8 text-center">
+        <p class="text-gray-400">ISRAELI PUBLIC</p>
         <p class="text-6xl font-bold text-amber-400 mt-3">-32%</p>
       </div>
     </div>
 
-    <!-- Lebanese vs Israeli Split -->
+    <!-- Split Charts -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-      <div class="bg-gray-900 rounded-3xl p-8">
+      <div class="section-card rounded-3xl p-8">
         <h3 class="font-semibold text-lg mb-6">Lebanese Public Sentiment</h3>
-        <canvas id="lebaneseChart" height="140"></canvas>
+        <canvas id="lebaneseChart" height="160"></canvas>
       </div>
-      <div class="bg-gray-900 rounded-3xl p-8">
+      <div class="section-card rounded-3xl p-8">
         <h3 class="font-semibold text-lg mb-6">Israeli Public Sentiment</h3>
-        <canvas id="israeliChart" height="140"></canvas>
+        <canvas id="israeliChart" height="160"></canvas>
       </div>
     </div>
 
-    <!-- Key Insights Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-      <div class="bg-gray-900 rounded-3xl p-6">
+    <!-- Key Metrics -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+      <div class="section-card rounded-3xl p-6 text-center">
         <p class="text-xs text-gray-400">WAR FATIGUE</p>
         <p class="text-5xl font-bold text-red-400 mt-2">78%</p>
       </div>
-      <div class="bg-gray-900 rounded-3xl p-6">
-        <p class="text-xs text-gray-400">ECONOMIC HOPE</p>
+      <div class="section-card rounded-3xl p-6 text-center">
+        <p class="text-xs text-gray-400">ECONOMIC DRIVE</p>
         <p class="text-5xl font-bold text-emerald-400 mt-2">69%</p>
       </div>
-      <div class="bg-gray-900 rounded-3xl p-6">
+      <div class="section-card rounded-3xl p-6 text-center">
         <p class="text-xs text-gray-400">SECURITY FIRST</p>
         <p class="text-5xl font-bold text-amber-400 mt-2">81%</p>
       </div>
-      <div class="bg-gray-900 rounded-3xl p-6">
+      <div class="section-card rounded-3xl p-6 text-center">
         <p class="text-xs text-gray-400">TRUST IN US/TRUMP</p>
         <p class="text-5xl font-bold text-cyan-400 mt-2">+18%</p>
       </div>
     </div>
 
     <!-- Path to Peace -->
-    <div class="bg-gray-900 rounded-3xl p-8 mb-12">
-      <h3 class="font-semibold text-xl mb-6">Path to Peace Indicators (Citizen View)</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="text-center">
-          <p class="text-emerald-400 text-4xl font-bold">64%</p>
-          <p class="text-sm text-gray-400 mt-1">Support for Economic Normalization</p>
+    <div class="section-card rounded-3xl p-8 mb-12">
+      <h3 class="font-semibold text-xl mb-6">Citizen Path to Peace Indicators</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-emerald-400 text-5xl font-bold">64%</p>
+          <p class="text-sm text-gray-400 mt-2">Support Economic Normalization</p>
         </div>
-        <div class="text-center">
-          <p class="text-amber-400 text-4xl font-bold">57%</p>
-          <p class="text-sm text-gray-400 mt-1">Hezbollah Disarmament Required</p>
+        <div>
+          <p class="text-amber-400 text-5xl font-bold">57%</p>
+          <p class="text-sm text-gray-400 mt-2">Hezbollah Disarmament Required</p>
         </div>
-        <div class="text-center">
-          <p class="text-red-400 text-4xl font-bold">41%</p>
-          <p class="text-sm text-gray-400 mt-1">Trust in Traditional Mediators</p>
+        <div>
+          <p class="text-red-400 text-5xl font-bold">41%</p>
+          <p class="text-sm text-gray-400 mt-2">Trust in Old Mediators</p>
         </div>
-        <div class="text-center">
-          <p class="text-cyan-400 text-4xl font-bold">73%</p>
-          <p class="text-sm text-gray-400 mt-1">Abraham Accords Model Preferred</p>
+        <div>
+          <p class="text-cyan-400 text-5xl font-bold">73%</p>
+          <p class="text-sm text-gray-400 mt-2">Abraham Accords Model Preferred</p>
         </div>
       </div>
     </div>
 
-    <div class="text-center mt-10">
-      <a href="deep-dive.html" 
-         class="inline-block px-16 py-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-bold text-xl rounded-3xl hover:scale-105 transition-all">
-        Full Deep Dive Report →
-      </a>
+    <!-- Abraham Accords Comparison -->
+    <div class="section-card rounded-3xl p-8 mb-12">
+      <h3 class="font-semibold text-xl mb-6">Abraham Accords vs Current Lebanon</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <p class="text-emerald-400 text-4xl font-bold">+240%</p>
+          <p class="text-sm text-gray-400">Trade Growth (UAE Example)</p>
+        </div>
+        <div class="text-center">
+          <p class="text-emerald-400 text-4xl font-bold">+180%</p>
+          <p class="text-sm text-gray-400">Tourism Boost</p>
+        </div>
+        <div class="text-center">
+          <p class="text-amber-400 text-4xl font-bold">-68%</p>
+          <p class="text-sm text-gray-400">Lebanon GDP Decline Since 2019</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Omitted Realities -->
+    <div class="section-card rounded-3xl p-8">
+      <h3 class="font-semibold text-xl mb-6 text-orange-400">Omitted Realities from Citizen Voices</h3>
+      <ul class="space-y-4 text-gray-300">
+        <li>• Lebanese citizens are exhausted by economic collapse and Hezbollah’s heavy influence</li>
+        <li>• Israeli public insists on strong security guarantees before any normalization</li>
+        <li>• Many in both countries quietly admire the economic success of the Abraham Accords</li>
+        <li>• Deep distrust in traditional political elites and previous mediators (Qatar, Turkey, France)</li>
+        <li>• Citizens in Lebanon are split on Hezbollah: some see it as part of the social fabric, others as a major obstacle to peace</li>
+      </ul>
+    </div>
+
+    <div class="text-center mt-16">
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+              class="px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-3xl text-lg hover:scale-105 transition">
+        ↑ Back to Top
+      </button>
     </div>
   </div>
 
   <script>
-    // Lebanese Chart
+    // Lebanese Sentiment Chart
     new Chart(document.getElementById('lebaneseChart'), {
       type: 'bar',
       data: {
-        labels: ['Peace Desire', 'Hezbollah Role', 'Economic Collapse', 'US/Trump Mediator'],
+        labels: ['Desire for Peace', 'Hezbollah Role', 'Economic Situation', 'Trust in US/Trump'],
         datasets: [{
-          label: 'Lebanese Sentiment',
+          label: 'Lebanese Public',
           data: [68, -55, -89, 42],
           backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee']
         }]
       },
-      options: { responsive: true, plugins: { legend: { display: false } } }
+      options: { responsive: true, plugins: { legend: { display: false }}}
     });
 
-    // Israeli Chart
+    // Israeli Sentiment Chart
     new Chart(document.getElementById('israeliChart'), {
       type: 'bar',
       data: {
-        labels: ['Peace Desire', 'Hezbollah Role', 'Economic Collapse', 'US/Trump Mediator'],
+        labels: ['Desire for Peace', 'Hezbollah Role', 'Economic Situation', 'Trust in US/Trump'],
         datasets: [{
-          label: 'Israeli Sentiment',
+          label: 'Israeli Public',
           data: [51, -82, -34, 67],
           backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee']
         }]
       },
-      options: { responsive: true, plugins: { legend: { display: false } } }
+      options: { responsive: true, plugins: { legend: { display: false }}}
     });
   </script>
 </body>
