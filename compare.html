@@ -6,10 +6,6 @@
   <title>Compare • CitizenPulse</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    .neon-blue { text-shadow: 0 0 12px #22d3ee; }
-    .gap-bar { height: 8px; border-radius: 9999px; }
-  </style>
 </head>
 <body class="bg-[#0a0f1c] text-gray-200">
 
@@ -24,7 +20,6 @@
       </a>
     </div>
 
-    <!-- Main Comparison -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       
       <!-- Citizen Side -->
@@ -35,13 +30,14 @@
         </div>
         <div class="space-y-6">
           <div>
-            <p class="text-emerald-400 font-medium">Arab Public Sentiment</p>
-            <p class="text-5xl font-bold text-emerald-400">54%</p>
-            <p class="text-sm text-gray-400">Support for Normalization</p>
+            <p class="text-emerald-400 font-medium">Current Citizen Sentiment</p>
+            <p class="text-5xl font-bold text-emerald-400 mt-2">Pragmatic & War-Weary</p>
           </div>
-          <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-            <div class="h-2 bg-emerald-400 w-[54%]"></div>
-          </div>
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li>• Strong desire for economic recovery and reconstruction</li>
+            <li>• Deep fatigue with endless conflict and political elite</li>
+            <li>• Preference for practical outcomes over ideology</li>
+          </ul>
         </div>
       </div>
 
@@ -53,13 +49,14 @@
         </div>
         <div class="space-y-6">
           <div>
-            <p class="text-red-400 font-medium">Traditional Sources</p>
-            <p class="text-5xl font-bold text-red-400">22%</p>
-            <p class="text-sm text-gray-400">Reported Support Level</p>
+            <p class="text-red-400 font-medium">Government & Traditional Media</p>
+            <p class="text-5xl font-bold text-red-400 mt-2">Hardline & Ideological</p>
           </div>
-          <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-            <div class="h-2 bg-red-400 w-[22%]"></div>
-          </div>
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li>• Emphasis on sovereignty, resistance, and security threats</li>
+            <li>• Political posturing and maintaining alliances</li>
+            <li>• Downplaying public war fatigue and economic desperation</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -67,31 +64,32 @@
     <!-- The Gap -->
     <div class="mt-10 bg-gradient-to-r from-orange-500/10 to-transparent border border-orange-500/30 rounded-3xl p-8">
       <h3 class="text-orange-400 text-xl font-semibold flex items-center gap-3">
-        <i class="fas fa-bolt"></i> THE CITIZEN-OFFICIAL GAP
+        <i class="fas fa-bolt"></i> THE CITIZEN – OFFICIAL GAP
       </h3>
-      <p class="text-5xl font-bold text-orange-400 mt-4">+32 percentage points</p>
-      <p class="text-gray-300 mt-2">Citizens are significantly more open to peace and normalization than official narratives and traditional polls suggest.</p>
+      <p class="text-5xl font-bold text-orange-400 mt-4">Significant Divergence</p>
+      <p class="text-gray-300 mt-3">Citizens on both sides show stronger desire for de-escalation and economic relief than official political rhetoric and media narratives reflect.</p>
     </div>
 
-    <!-- Why The Gap Exists -->
-    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-gray-900 rounded-3xl p-8">
-        <h4 class="font-semibold text-lg mb-4">Why Citizens Differ</h4>
-        <ul class="space-y-3 text-sm text-gray-300">
-          <li>• Direct lived experience vs filtered media reporting</li>
-          <li>• Economic pragmatism (youth especially)</li>
-          <li>• Fatigue with endless conflict</li>
-          <li>• Less ideological, more practical</li>
-        </ul>
-      </div>
-      <div class="bg-gray-900 rounded-3xl p-8">
-        <h4 class="font-semibold text-lg mb-4">Why Official Narratives Differ</h4>
-        <ul class="space-y-3 text-sm text-gray-300">
-          <li>• Political positioning and alliances</li>
-          <li>• Media framing & editorial bias</li>
-          <li>• Self-censorship in polls</li>
-          <li>• Strategic communication goals</li>
-        </ul>
+    <!-- Expanded Omitted Realities -->
+    <div class="mt-12 bg-gray-900 rounded-3xl p-8">
+      <h3 class="text-xl font-semibold mb-6 text-orange-400">Omitted Realities Emerging from Citizen Voices</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <p class="font-medium text-red-400">Lebanese Side</p>
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li>• Economic collapse and daily survival concerns outweigh ideological resistance for many citizens</li>
+            <li>• Growing public frustration with Hezbollah’s political and economic dominance</li>
+            <li>• Widespread distrust in traditional political families and elite</li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <p class="font-medium text-amber-400">Israeli Side</p>
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li>• Strong insistence on security guarantees (especially Hezbollah disarmament)</li>
+            <li>• Cautious openness to economic cooperation if risks are minimized</li>
+            <li>• Skepticism toward Lebanese state institutions and reliability</li>
+          </ul>
+        </div>
       </div>
     </div>
 
