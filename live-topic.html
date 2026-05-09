@@ -30,13 +30,11 @@
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500"></span>
             </span>
-            LIVE • Grok AI Real-time Citizen Intelligence
+            LIVE • May 2026 • Grok AI Real-time Intelligence
           </p>
         </div>
       </div>
-      <a href="index.html" class="text-cyan-400 hover:text-white flex items-center gap-2 text-lg">
-        ← Back to Overview
-      </a>
+      <a href="index.html" class="text-cyan-400 hover:text-white flex items-center gap-2">← Back to Overview</a>
     </div>
 
     <!-- Sentiment Overview -->
@@ -55,128 +53,118 @@
       </div>
     </div>
 
-    <!-- Split Charts -->
+    <!-- Real-Time Sentiment Cards -->
+    <div class="space-y-8 mb-12">
+      <div class="section-card rounded-3xl p-8">
+        <div class="flex justify-between mb-4">
+          <h3 class="font-semibold">Marco Rubio – Live Press Conference</h3>
+          <span class="text-xs bg-gray-800 px-3 py-1 rounded-full">May 5-6, 2026</span>
+        </div>
+        <p class="text-sm text-gray-300 mb-6">Rubio confirmed active framework and called for Hezbollah full disarmament. Iran sanctions pressure continuing.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-emerald-400 text-sm mb-2">Arab Citizen Reaction <span class="font-bold">68%</span></p>
+            <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-2 bg-emerald-400 w-[68%]"></div></div>
+          </div>
+          <div>
+            <p class="text-cyan-400 text-sm mb-2">Israeli Citizen Reaction <span class="font-bold">81%</span></p>
+            <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-2 bg-cyan-400 w-[81%]"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card rounded-3xl p-8">
+        <div class="flex justify-between mb-4">
+          <h3 class="font-semibold">White House Official Statement</h3>
+          <span class="text-xs bg-gray-800 px-3 py-1 rounded-full">May 4-5, 2026</span>
+        </div>
+        <p class="text-sm text-gray-300 mb-6">Trump hosting Lebanese President Aoun and Israeli PM Netanyahu framework talks.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-emerald-400 text-sm mb-2">Arab Citizen Reaction <span class="font-bold">61%</span></p>
+            <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-2 bg-emerald-400 w-[61%]"></div></div>
+          </div>
+          <div>
+            <p class="text-cyan-400 text-sm mb-2">Israeli Citizen Reaction <span class="font-bold">74%</span></p>
+            <div class="h-2 bg-gray-700 rounded-full overflow-hidden"><div class="h-2 bg-cyan-400 w-[74%]"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Citizen Benefit Simulation -->
+    <div class="section-card rounded-3xl p-8 mb-12">
+      <h3 class="font-semibold text-xl mb-6">Citizen Benefit Simulation — Normalization vs Terror Path</h3>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="text-center">
+          <p class="text-emerald-400 text-5xl font-bold">88</p>
+          <p class="text-sm text-emerald-400">Normalization Path (UAE 2026 benchmark)</p>
+        </div>
+        <div class="text-center">
+          <p class="text-red-400 text-5xl font-bold">12</p>
+          <p class="text-sm text-red-400">Terror/Delay Path (Lebanon 2006-24 model)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Peace Builders & Obstructors -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
       <div class="section-card rounded-3xl p-8">
-        <h3 class="font-semibold text-lg mb-6">Lebanese Public Sentiment</h3>
-        <canvas id="lebaneseChart" height="160"></canvas>
+        <h3 class="font-semibold mb-6 flex items-center gap-2">🟢 Peace Builders — Citizen Sentiment Scores</h3>
+        <div class="space-y-4 text-sm">
+          <div class="flex justify-between"><span>US President (Trump)</span><span class="text-emerald-400">+14pts</span></div>
+          <div class="flex justify-between"><span>US Secretary of State (Rubio)</span><span class="text-emerald-400">+8pts</span></div>
+          <div class="flex justify-between"><span>Saudi Crown Prince</span><span class="text-emerald-400">+7pts</span></div>
+          <div class="flex justify-between"><span>Lebanese President Aoun</span><span class="text-emerald-400">+18pts</span></div>
+        </div>
+      </div>
+
+      <div class="section-card rounded-3xl p-8">
+        <h3 class="font-semibold mb-6 flex items-center gap-2 text-red-400">🔴 Regional Obstructors — Who Is Blocking Peace</h3>
+        <div class="space-y-4 text-sm">
+          <div class="flex justify-between"><span>Iran Supreme Leader</span><span class="text-red-400">-22pts</span></div>
+          <div class="flex justify-between"><span>IRGC / Hezbollah Leadership</span><span class="text-red-400">-19pts</span></div>
+          <div class="flex justify-between"><span>French President</span><span class="text-red-400">-9pts</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deeper Citizen Analysis -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div class="section-card rounded-3xl p-8">
+        <h4 class="font-semibold mb-4">Peace with Israel</h4>
+        <p class="text-emerald-400 text-4xl font-bold">54%</p>
+        <p class="text-sm text-gray-400 mt-2">Majority cautious optimism, especially among youth</p>
       </div>
       <div class="section-card rounded-3xl p-8">
-        <h3 class="font-semibold text-lg mb-6">Israeli Public Sentiment</h3>
-        <canvas id="israeliChart" height="160"></canvas>
+        <h4 class="font-semibold mb-4">Islamic Terrorism & Terror Regimes</h4>
+        <p class="text-red-400 text-4xl font-bold">71%</p>
+        <p class="text-sm text-gray-400 mt-2">Fastest shifting sentiment — strong opposition</p>
       </div>
     </div>
 
-    <!-- Key Metrics -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-      <div class="section-card rounded-3xl p-6 text-center">
-        <p class="text-xs text-gray-400">WAR FATIGUE</p>
-        <p class="text-5xl font-bold text-red-400 mt-2">78%</p>
-      </div>
-      <div class="section-card rounded-3xl p-6 text-center">
-        <p class="text-xs text-gray-400">ECONOMIC DRIVE</p>
-        <p class="text-5xl font-bold text-emerald-400 mt-2">69%</p>
-      </div>
-      <div class="section-card rounded-3xl p-6 text-center">
-        <p class="text-xs text-gray-400">SECURITY FIRST</p>
-        <p class="text-5xl font-bold text-amber-400 mt-2">81%</p>
-      </div>
-      <div class="section-card rounded-3xl p-6 text-center">
-        <p class="text-xs text-gray-400">TRUST IN US/TRUMP</p>
-        <p class="text-5xl font-bold text-cyan-400 mt-2">+18%</p>
-      </div>
-    </div>
-
-    <!-- Path to Peace -->
-    <div class="section-card rounded-3xl p-8 mb-12">
-      <h3 class="font-semibold text-xl mb-6">Citizen Path to Peace Indicators</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <p class="text-emerald-400 text-5xl font-bold">64%</p>
-          <p class="text-sm text-gray-400 mt-2">Support Economic Normalization</p>
-        </div>
-        <div>
-          <p class="text-amber-400 text-5xl font-bold">57%</p>
-          <p class="text-sm text-gray-400 mt-2">Hezbollah Disarmament Required</p>
-        </div>
-        <div>
-          <p class="text-red-400 text-5xl font-bold">41%</p>
-          <p class="text-sm text-gray-400 mt-2">Trust in Old Mediators</p>
-        </div>
-        <div>
-          <p class="text-cyan-400 text-5xl font-bold">73%</p>
-          <p class="text-sm text-gray-400 mt-2">Abraham Accords Model Preferred</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Abraham Accords Comparison -->
-    <div class="section-card rounded-3xl p-8 mb-12">
-      <h3 class="font-semibold text-xl mb-6">Abraham Accords vs Current Lebanon</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="text-center">
-          <p class="text-emerald-400 text-4xl font-bold">+240%</p>
-          <p class="text-sm text-gray-400">Trade Growth (UAE Example)</p>
-        </div>
-        <div class="text-center">
-          <p class="text-emerald-400 text-4xl font-bold">+180%</p>
-          <p class="text-sm text-gray-400">Tourism Boost</p>
-        </div>
-        <div class="text-center">
-          <p class="text-amber-400 text-4xl font-bold">-68%</p>
-          <p class="text-sm text-gray-400">Lebanon GDP Decline Since 2019</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Omitted Realities -->
+    <!-- Path to Peace Roadmap -->
     <div class="section-card rounded-3xl p-8">
-      <h3 class="font-semibold text-xl mb-6 text-orange-400">Omitted Realities from Citizen Voices</h3>
-      <ul class="space-y-4 text-gray-300">
-        <li>• Lebanese citizens are exhausted by economic collapse and Hezbollah’s heavy influence</li>
-        <li>• Israeli public insists on strong security guarantees before any normalization</li>
-        <li>• Many in both countries quietly admire the economic success of the Abraham Accords</li>
-        <li>• Deep distrust in traditional political elites and previous mediators (Qatar, Turkey, France)</li>
-        <li>• Citizens in Lebanon are split on Hezbollah: some see it as part of the social fabric, others as a major obstacle to peace</li>
-      </ul>
-    </div>
-
-    <div class="text-center mt-16">
-      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-              class="px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-3xl text-lg hover:scale-105 transition">
-        ↑ Back to Top
-      </button>
+      <h3 class="font-semibold text-xl mb-6">Regional Overview + Path to Peace (Historical Roadmap)</h3>
+      <div class="space-y-6">
+        <div class="flex gap-6">
+          <div class="w-28 text-right text-emerald-400">2020</div>
+          <div>Abraham Accords — Citizens aligned with success in UAE, Bahrain, Morocco</div>
+        </div>
+        <div class="flex gap-6">
+          <div class="w-28 text-right text-cyan-400 font-medium">2026 LIVE</div>
+          <div class="text-cyan-400">Lebanon Direct Talks — Highest probability peace moment in 78 years</div>
+        </div>
+        <div class="flex gap-6">
+          <div class="w-28 text-right text-gray-400">2026+</div>
+          <div>Saudi Normalization — The grand prize, conditional on Lebanon success</div>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    // Lebanese Sentiment Chart
-    new Chart(document.getElementById('lebaneseChart'), {
-      type: 'bar',
-      data: {
-        labels: ['Desire for Peace', 'Hezbollah Role', 'Economic Situation', 'Trust in US/Trump'],
-        datasets: [{
-          label: 'Lebanese Public',
-          data: [68, -55, -89, 42],
-          backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee']
-        }]
-      },
-      options: { responsive: true, plugins: { legend: { display: false }}}
-    });
-
-    // Israeli Sentiment Chart
-    new Chart(document.getElementById('israeliChart'), {
-      type: 'bar',
-      data: {
-        labels: ['Desire for Peace', 'Hezbollah Role', 'Economic Situation', 'Trust in US/Trump'],
-        datasets: [{
-          label: 'Israeli Public',
-          data: [51, -82, -34, 67],
-          backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee']
-        }]
-      },
-      options: { responsive: true, plugins: { legend: { display: false }}}
-    });
+    // Optional: Add more charts here if needed
   </script>
 </body>
 </html>
