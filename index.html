@@ -43,58 +43,51 @@
         </div>
       </div>
 
-      <div class="p-4">
-        <div class="relative">
-          <input type="text" placeholder="Search topics or countries..." 
-                 class="w-full bg-gray-900 border border-gray-700 rounded-2xl py-4 pl-12 focus:outline-none focus:border-cyan-400 text-sm">
-          <i class="fas fa-search absolute left-5 top-4.5 text-gray-500"></i>
-        </div>
-      </div>
-
-      <nav class="flex-1 px-3 space-y-1">
+      <nav class="flex-1 p-4 space-y-1">
         <a href="index.html" class="flex items-center gap-3 px-5 py-4 rounded-2xl bg-gray-800 text-white font-medium">
-          <i class="fas fa-tachometer-alt w-5"></i> Overview
+          <i class="fas fa-tachometer-alt"></i> Overview Dashboard
         </a>
         <a href="live-topic.html" class="flex items-center gap-3 px-5 py-4 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
-          <i class="fas fa-chart-line w-5"></i> Live Intelligence
+          <i class="fas fa-chart-line"></i> Live Intelligence
+        </a>
+        <a href="about.html" class="flex items-center gap-3 px-5 py-4 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
+          <i class="fas fa-info-circle"></i> About
         </a>
       </nav>
 
-      <div class="p-6 space-y-4 border-t border-gray-800 mt-auto">
-        <div class="bg-gray-900 rounded-2xl p-5">
-          <p class="text-xs text-gray-400">Posts Analyzed Today</p>
-          <p class="text-3xl font-semibold">4.87M</p>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-gray-900 rounded-2xl p-5">
-            <p class="text-xs text-gray-400">Grok AI Accuracy</p>
-            <p class="text-3xl font-semibold text-cyan-400">94.2%</p>
+      <div class="p-6 border-t border-gray-800 mt-auto">
+        <div class="bg-gray-900 rounded-3xl p-5 space-y-4">
+          <div>
+            <p class="text-xs text-gray-400">X Posts Analyzed Today</p>
+            <p class="text-3xl font-semibold">4.87M</p>
           </div>
-          <div class="bg-gray-900 rounded-2xl p-5">
-            <p class="text-xs text-gray-400">Countries</p>
-            <p class="text-3xl font-semibold">18+</p>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-xs text-gray-400">Grok AI Accuracy</p>
+              <p class="text-3xl font-semibold text-cyan-400">94.2%</p>
+            </div>
+            <div>
+              <p class="text-xs text-gray-400">Countries Tracked</p>
+              <p class="text-3xl font-semibold">18+</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Main Dashboard -->
+    <!-- Main Content -->
     <div class="flex-1 overflow-auto">
-      <header class="bg-[#0f172a] border-b border-gray-800 px-10 py-6">
-        <h2 class="text-3xl font-semibold">Trending Citizen Sentiment</h2>
-      </header>
+      <div class="bg-[#0f172a] border-b border-gray-800 px-10 py-6">
+        <h2 class="text-3xl font-semibold">Trending Topics Dashboard</h2>
+      </div>
 
       <div class="p-10">
         <div class="mb-12">
-          <p class="uppercase tracking-widest text-cyan-400 text-sm font-medium">POWERED BY REAL-TIME X DATA + GROK AI</p>
-          <h1 class="text-5xl font-bold mt-3 leading-tight">What Citizens <span class="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">Actually Think</span></h1>
+          <p class="text-cyan-400 tracking-widest text-sm">REAL CITIZEN SENTIMENT FROM X • POWERED BY GROK AI</p>
+          <h1 class="text-5xl font-bold mt-3">What Citizens <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Actually Think</span></h1>
         </div>
 
-        <h3 class="text-xl font-semibold mb-8 flex items-center gap-3">
-          <span>Active Topics</span>
-          <span class="h-px flex-1 bg-gradient-to-r from-transparent via-gray-700 to-transparent"></span>
-        </h3>
-
+        <h3 class="text-xl font-semibold mb-8">Active Topics</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="topic-grid"></div>
       </div>
     </div>
@@ -103,8 +96,8 @@
   <script>
     const topicsData = [
       { emoji: "🇱🇧🇮🇱", title: "Israel-Lebanon Direct Talks", summary: "War fatigue vs security demands under US mediation", link: "live-topic.html" },
-      { emoji: "🕊️", title: "Abraham Accords Expansion", summary: "Strong citizen support for economic normalization", link: "live-topic.html" },
-      { emoji: "🇮🇷", title: "Iran Regime & Proxies", summary: "Rising public rejection of regime narratives", link: "live-topic.html" }
+      { emoji: "🕊️", title: "Abraham Accords Expansion", summary: "Citizens demand economic normalization like UAE success", link: "live-topic.html" },
+      { emoji: "🇮🇷", title: "Iran Regime & Proxies", summary: "Strong citizen rejection of regime narratives", link: "live-topic.html" }
     ];
 
     function renderTopics() {
@@ -115,17 +108,17 @@
         container.innerHTML += `
           <div onclick="window.location.href='${topic.link}'" class="topic-card rounded-3xl overflow-hidden cursor-pointer h-full flex flex-col">
             <div class="p-8 flex-1">
-              <div class="flex justify-between items-start">
+              <div class="flex justify-between">
                 <span class="text-6xl">${topic.emoji}</span>
-                <span class="px-5 py-2 text-xs font-medium bg-emerald-500/10 text-emerald-400 rounded-2xl">LIVE</span>
+                <span class="px-5 py-2 text-xs bg-emerald-500/10 text-emerald-400 rounded-2xl">LIVE</span>
               </div>
               <h4 class="text-2xl font-semibold mt-8">${topic.title}</h4>
-              <p class="text-gray-400 mt-4 leading-relaxed">${topic.summary}</p>
+              <p class="text-gray-400 mt-4">${topic.summary}</p>
             </div>
-            <div class="mt-auto border-t border-gray-700 bg-black/30 p-6">
-              <div class="w-full py-4 text-center bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl text-sm tracking-wider">
-                OPEN INTELLIGENCE DASHBOARD →
-              </div>
+            <div class="border-t border-gray-700 p-6 mt-auto">
+              <button class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl">
+                Open Intelligence Dashboard →
+              </button>
             </div>
           </div>`;
       });
