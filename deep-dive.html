@@ -6,101 +6,55 @@
   <title>Deep Dive • Israel-Lebanon Direct Talks - CitizenPulse</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
   <style>
-    .neon-blue { text-shadow: 0 0 12px #22d3ee; }
-    .section-card { background: #0f172a; border: 1px solid #334155; }
+    .insight-square {
+      background: #1e2937;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .insight-square:hover {
+      transform: scale(1.05);
+      background: #334155;
+    }
   </style>
 </head>
 <body class="bg-[#0a0f1c] text-gray-200">
 
   <div class="max-w-6xl mx-auto p-8">
+
     <!-- Header -->
     <div class="flex justify-between items-center mb-10">
       <div>
-        <span class="text-cyan-400 font-medium">PLUS REPORT</span>
+        <span class="text-cyan-400 font-medium tracking-widest">DEEP DIVE REPORT</span>
         <h1 class="text-4xl font-bold mt-2">Israel-Lebanon Direct Talks under US Leadership</h1>
-        <p class="text-emerald-400 flex items-center gap-2 mt-3">
-          <span class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></span>
-          Deep Dive Analysis • Last updated moments ago
-        </p>
       </div>
       <div class="flex gap-4">
-        <button onclick="window.print()" class="px-6 py-3 border border-gray-600 rounded-2xl hover:bg-gray-800">
+        <button onclick="window.print()" class="px-6 py-3 border border-gray-600 rounded-2xl hover:bg-gray-800 flex items-center gap-2">
           <i class="fas fa-download"></i> PDF
         </button>
-        <button onclick="shareToX()" class="px-6 py-3 bg-cyan-500 text-black rounded-2xl font-medium">
-          Share on X
-        </button>
-        <a href="index.html" class="px-6 py-3 text-gray-400 hover:text-white">← Back</a>
+        <a href="index.html" class="px-6 py-3 text-gray-400 hover:text-white">← Back to Dashboard</a>
       </div>
     </div>
 
-    <!-- Executive Summary -->
-    <div class="section-card rounded-3xl p-8 mb-8">
-      <h2 class="text-2xl font-semibold mb-4">Executive Summary</h2>
-      <p class="text-lg text-gray-300">
-        Real-time X sentiment reveals strong war fatigue on both sides and growing economic pragmatism, 
-        in sharp contrast to official political posturing and media narratives.
-      </p>
-      <div class="mt-6 grid grid-cols-3 gap-6">
-        <div class="text-center">
-          <p class="text-5xl font-bold text-red-400">-47%</p>
-          <p class="text-sm text-gray-400">Overall Sentiment</p>
-        </div>
-        <div class="text-center">
-          <p class="text-5xl font-bold text-red-400">-62%</p>
-          <p class="text-sm text-gray-400">Lebanese Public</p>
-        </div>
-        <div class="text-center">
-          <p class="text-5xl font-bold text-amber-400">-32%</p>
-          <p class="text-sm text-gray-400">Israeli Public</p>
-        </div>
+    <!-- Overall Sentiment -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-gray-900 rounded-3xl p-8 text-center">
+        <p class="text-gray-400">OVERALL SENTIMENT</p>
+        <p class="text-7xl font-bold text-red-400 mt-4">-47%</p>
+      </div>
+      <div class="bg-gray-900 rounded-3xl p-8 text-center">
+        <p class="text-gray-400">LEBANESE PUBLIC</p>
+        <p class="text-6xl font-bold text-red-400 mt-4">-62%</p>
+      </div>
+      <div class="bg-gray-900 rounded-3xl p-8 text-center">
+        <p class="text-gray-400">ISRAELI PUBLIC</p>
+        <p class="text-6xl font-bold text-amber-400 mt-4">-32%</p>
       </div>
     </div>
 
-    <!-- Citizen vs Official Gap -->
-    <div class="section-card rounded-3xl p-8 mb-8 border-orange-500/30">
-      <h3 class="text-orange-400 font-semibold text-xl mb-4">The Citizen – Official Gap</h3>
-      <p class="text-3xl font-bold text-orange-400">+34 points</p>
-      <p class="text-gray-300 mt-3">
-        Citizens on both sides show significantly stronger desire for de-escalation, economic recovery, 
-        and practical peace than their governments and mainstream media currently reflect.
-      </p>
-    </div>
-
-    <!-- Key Insights -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-      <div class="section-card rounded-3xl p-8">
-        <h4 class="font-semibold mb-5">What Citizens Are Saying</h4>
-        <ul class="space-y-4 text-sm">
-          <li class="flex gap-3"><span class="text-emerald-400">•</span> Economic survival and reconstruction are top priorities for Lebanese citizens</li>
-          <li class="flex gap-3"><span class="text-emerald-400">•</span> Israeli public demands clear security guarantees before supporting normalization</li>
-          <li class="flex gap-3"><span class="text-emerald-400">•</span> Youth on both sides show higher openness to practical cooperation</li>
-        </ul>
-      </div>
-      <div class="section-card rounded-3xl p-8">
-        <h4 class="font-semibold mb-5">Omitted Realities</h4>
-        <ul class="space-y-4 text-sm">
-          <li class="flex gap-3"><span class="text-orange-400">•</span> Hezbollah’s heavy economic and political cost to Lebanese society</li>
-          <li class="flex gap-3"><span class="text-orange-400">•</span> Widespread elite distrust across both populations</li>
-          <li class="flex gap-3"><span class="text-orange-400">•</span> Strong public admiration for Abraham Accords economic model</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Methodology -->
-    <div class="section-card rounded-3xl p-8 text-sm">
-      <h4 class="font-semibold mb-4">Methodology & Transparency</h4>
-      <p class="text-gray-400">
-        Analysis based on real-time X public data (millions of posts). Grok AI processed sentiment, context, and narrative gaps. 
-        Focus on verified and high-engagement accounts. Data refreshed continuously.
-      </p>
-    </div>
-
-    <div class="text-center mt-12 text-gray-500">
-      This is a preview. Full historical trends, predictive scenarios, and PDF export are available in Pro Plan.
-    </div>
-  </div>
-
-</body>
-</html>
+    <!-- Citizen Reality Squares -->
+    <div class="bg
