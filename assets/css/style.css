@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.neon-blue {
+  text-shadow: 0 0 12px #22d3ee;
+}
+
+.live-dot {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.topic-card {
+  transition: all 0.3s ease;
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+.topic-card:hover {
+  transform: translateY(-6px);
+  border-color: #22d3ee;
+  box-shadow: 0 20px 25px -5px rgb(103 232 249 / 0.15);
+}
+
+/* Gap highlight */
+.gap-box {
+  border-color: #f59e0b;
+  background: rgba(249, 115, 22, 0.05);
+}
