@@ -7,9 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
-  <!-- Shared Assets -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   
   <style>
     .neon-blue { text-shadow: 0 0 12px #22d3ee; }
@@ -24,7 +22,17 @@
       transform: translateY(-6px); 
       border-color: #22d3ee;
     }
-    .mini-chart { height: 65px; }
+    .insight-square {
+      background: #1e2937;
+      border-radius: 12px;
+      padding: 12px 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .insight-square:hover {
+      transform: scale(1.05);
+      background: #334155;
+    }
   </style>
 </head>
 <body class="bg-[#0a0f1c] text-gray-200">
@@ -65,10 +73,6 @@
         <a href="compare.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
           <i class="fas fa-balance-scale"></i>
           <span>Compare</span>
-        </a>
-        <a href="plans.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
-          <i class="fas fa-gem"></i>
-          <span>Plans</span>
         </a>
       </nav>
 
@@ -118,7 +122,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
   <script>
     const topicsData = [
       { 
@@ -131,8 +134,11 @@
           "Youth prioritize jobs and stability",
           "Clear gap between citizen aspirations and government rhetoric"
         ],
-        chartData: [65, 58, 42],
-        chartLabels: ['18-34', '35-54', '55+']
+        squares: [
+          { label: "Economic Hope", value: "67%", color: "emerald" },
+          { label: "Youth Support", value: "74%", color: "cyan" },
+          { label: "Gap to Official", value: "+29pts", color: "orange" }
+        ]
       },
       { 
         emoji: "🇱🇧🇮🇱", 
@@ -144,8 +150,11 @@
           "Israeli citizens demand security guarantees",
           "Citizens favor practical outcomes over ideology"
         ],
-        chartData: [45, 38, 52],
-        chartLabels: ['18-34', '35-54', '55+']
+        squares: [
+          { label: "War Fatigue", value: "78%", color: "red" },
+          { label: "Economic Drive", value: "69%", color: "emerald" },
+          { label: "Security Demand", value: "81%", color: "amber" }
+        ]
       },
       { 
         emoji: "🇮🇷", 
@@ -157,8 +166,11 @@
           "Regional publics see Iran-backed groups as destabilizing",
           "Major gap between state media and real voices"
         ],
-        chartData: [82, 71, 55],
-        chartLabels: ['18-34', '35-54', '55+']
+        squares: [
+          { label: "Anti-Regime", value: "82%", color: "red" },
+          { label: "Diaspora Voice", value: "89%", color: "cyan" },
+          { label: "Gap to Official", value: "+41pts", color: "orange" }
+        ]
       }
     ];
 
@@ -166,7 +178,7 @@
       const container = document.getElementById('topic-grid');
       container.innerHTML = '';
 
-      topicsData.forEach((topic, index) => {
+      topicsData.forEach((topic) => {
         const html = `
           <div class="topic-card rounded-3xl overflow-hidden cursor-pointer flex flex-col h-full">
             <div class="p-6 flex-1">
@@ -182,17 +194,13 @@
               <h4 class="font-semibold text-xl mt-6 leading-tight">${topic.title}</h4>
               <p class="text-gray-400 text-sm mt-4">${topic.summary}</p>
 
-              <div class="mt-6">
-                <p class="text-xs uppercase tracking-widest text-gray-400 mb-3">CITIZEN REALITY</p>
-                <ul class="space-y-2 text-sm text-gray-300">
-                  ${topic.insights.map(i => `<li class="flex gap-2"><span class="text-cyan-400">•</span>${i}</li>`).join('')}
-                </ul>
-              </div>
-
-              <!-- Mini Chart with Interactive Tooltips -->
-              <div class="mt-6">
-                <p class="text-xs text-gray-400 mb-2">Sentiment by Age Group</p>
-                <canvas id="miniChart-${index}" class="mini-chart"></canvas>
+              <div class="mt-6 grid grid-cols-3 gap-3">
+                ${topic.squares.map(s => `
+                  <div class="insight-square">
+                    <p class="text-xs text-gray-400">${s.label}</p>
+                    <p class="text-xl font-bold ${s.color === 'emerald' ? 'text-emerald-400' : s.color === 'red' ? 'text-red-400' : s.color === 'cyan' ? 'text-cyan-400' : 'text-orange-400'}">${s.value}</p>
+                  </div>
+                `).join('')}
               </div>
             </div>
             <div class="border-t border-gray-700 p-5 mt-auto">
@@ -203,47 +211,6 @@
           </div>`;
         container.innerHTML += html;
       });
-
-      // Render charts with rich tooltips
-      setTimeout(() => {
-        topicsData.forEach((topic, index) => {
-          new Chart(document.getElementById(`miniChart-${index}`), {
-            type: 'bar',
-            data: {
-              labels: topic.chartLabels,
-              datasets: [{
-                label: 'Sentiment %',
-                data: topic.chartData,
-                backgroundColor: ['#22d3ee', '#eab308', '#ef4444'],
-                borderWidth: 0,
-                borderRadius: 6,
-                hoverBackgroundColor: '#67e8f9'
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: { display: false },
-                tooltip: {
-                  backgroundColor: '#1e2937',
-                  titleColor: '#e0f2fe',
-                  bodyColor: '#bae6fd',
-                  padding: 12,
-                  displayColors: false,
-                  callbacks: {
-                    label: (context) => `${context.raw}% Sentiment`
-                  }
-                }
-              },
-              scales: {
-                x: { display: false },
-                y: { display: false }
-              }
-            }
-          });
-        });
-      }, 150);
     }
 
     renderTopics();
