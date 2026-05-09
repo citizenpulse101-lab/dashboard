@@ -126,53 +126,40 @@
     </div>
   </div>
 
-  <!-- Deep Dive Modal -->
-  <div id="deep-dive-modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
-    <div class="bg-gray-900 w-full max-w-2xl rounded-3xl p-8">
-      <div class="flex justify-between items-start mb-6">
-        <div id="modal-title" class="text-2xl font-bold"></div>
-        <button onclick="closeDeepDive()" class="text-3xl text-gray-400 hover:text-white">×</button>
-      </div>
-      <div id="modal-body" class="space-y-6"></div>
-      <div class="mt-10 pt-6 border-t border-gray-700">
-        <button onclick="registerForPlus()" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl">
-          Register with Email to Unlock Full Report
-        </button>
-      </div>
-    </div>
-  </div>
-
   <script>
     const topicsData = [
       { 
         emoji: "🕊️", 
         title: "Arab-Israeli Normalization", 
         category: "GEOPOLITICAL", 
-        sentiment: 54, 
-        posts: "2.4M", 
-        unique: "890K", 
-        summary: "Live citizen sentiment across 18 Arab & ME countries vs Israeli public on normalization, peace, and the Abraham Accords.",
-        insights: ["62% 18-34 yrs", "48% 35-54 yrs", "31% 55+ yrs", "54% Arab avg support"]
+        summary: "Citizens show growing pragmatism and interest in economic cooperation despite official caution.",
+        insights: [
+          "Many reference UAE, Bahrain and Morocco success stories as a desired model",
+          "Youth prioritize jobs and stability over continued conflict",
+          "Clear gap between citizen pragmatism and government rhetoric"
+        ]
+      },
+      { 
+        emoji: "🇱🇧🇮🇱", 
+        title: "Israel-Lebanon Direct Talks", 
+        category: "GEOPOLITICAL", 
+        summary: "Strong war fatigue on both sides clashes with deep mutual distrust and elite posturing.",
+        insights: [
+          "Economic desperation in Lebanon is becoming a stronger driver than political ideology",
+          "Israeli citizens demand concrete security guarantees before trusting any deal",
+          "Citizens favor practical outcomes over endless official hardlines"
+        ]
       },
       { 
         emoji: "🇮🇷", 
         title: "US-Israel vs Iran & the Islamic Regime", 
         category: "INTERNAL AFFAIRS", 
-        sentiment: -67, 
-        posts: "980K", 
-        unique: "310K", 
-        summary: "Inside Iran vs diaspora — citizen dissent vs IRGC narrative.",
-        insights: ["74% 18-34 yrs", "89% Diaspora", "-67% Iranians oppose regime"]
-      },
-      { 
-        emoji: "🛸", 
-        title: "White House UFO Files", 
-        category: "GOVERNMENT TRANSPARENCY", 
-        sentiment: 68, 
-        posts: "1.85M", 
-        unique: "720K", 
-        summary: "President Trump officially confirms release of White House UFO files.",
-        insights: ["68% Support full disclosure", "82% 18-34 age group"]
+        summary: "Iranian citizens and diaspora express far stronger opposition to the regime than official channels admit.",
+        insights: [
+          "Economic collapse driving widespread anti-regime sentiment",
+          "Regional publics increasingly see Iran-backed groups as destabilizing",
+          "Major gap between state media narrative and real public voice"
+        ]
       }
     ];
 
@@ -181,7 +168,6 @@
       container.innerHTML = '';
 
       topicsData.forEach((topic, index) => {
-        const color = topic.sentiment > 0 ? 'text-emerald-400' : 'text-red-400';
         const html = `
           <div class="topic-card rounded-3xl overflow-hidden cursor-pointer flex flex-col h-full">
             <div class="p-6 flex-1">
@@ -198,55 +184,20 @@
               <p class="text-gray-400 text-sm mt-4">${topic.summary}</p>
 
               <div class="mt-6">
-                <p class="text-xs uppercase tracking-widest text-gray-400 mb-3">Key Insights</p>
+                <p class="text-xs uppercase tracking-widest text-gray-400 mb-3">CITIZEN REALITY</p>
                 <ul class="space-y-2 text-sm text-gray-300">
-                  ${topic.insights.map(i => `<li class="flex gap-2"><span class="text-cyan-400">•</span> ${i}</li>`).join('')}
+                  ${topic.insights.map(i => `<li class="flex gap-2"><span class="text-cyan-400">•</span>${i}</li>`).join('')}
                 </ul>
               </div>
             </div>
-            <div class="border-t border-gray-700 p-5 flex gap-3 mt-auto">
-              <button onclick="shareToX(${index})" class="flex-1 py-3 bg-gray-800 hover:bg-gray-700 rounded-2xl text-sm flex items-center justify-center gap-2">
-                <i class="fab fa-x-twitter"></i> Share
-              </button>
-              <button onclick="showDeepDive(${index})" class="flex-1 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl">
+            <div class="border-t border-gray-700 p-5 mt-auto">
+              <button onclick="alert('Deep dive available in Plus Plan')" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl">
                 Explore full analysis →
               </button>
             </div>
           </div>`;
         container.innerHTML += html;
       });
-    }
-
-    function showDeepDive(index) {
-      const topic = topicsData[index];
-      document.getElementById('modal-title').innerHTML = `${topic.emoji} ${topic.title}`;
-      document.getElementById('modal-body').innerHTML = `
-        <div class="bg-gray-950 p-6 rounded-2xl">
-          <p class="text-gray-300">${topic.summary}</p>
-        </div>
-        <div class="mt-6">
-          <p class="text-emerald-400 font-medium">Full Report Available</p>
-          <p class="text-gray-400 mt-2">Deep dive, charts, PDF export, and predictive analysis are available in the Plus Plan.</p>
-        </div>
-      `;
-      document.getElementById('deep-dive-modal').classList.remove('hidden');
-    }
-
-    function closeDeepDive() {
-      document.getElementById('deep-dive-modal').classList.add('hidden');
-    }
-
-    function shareToX(index) {
-      const topic = topicsData[index];
-      const text = `CitizenPulse: ${topic.title} → Current citizen sentiment: ${topic.sentiment}%`;
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
-    }
-
-    function registerForPlus() {
-      const email = prompt("Enter your email to unlock full analysis:");
-      if (email) {
-        alert(`Thank you! Registration request received for ${email}`);
-      }
     }
 
     renderTopics();
