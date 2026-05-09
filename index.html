@@ -27,9 +27,8 @@
 
   <div class="flex h-screen">
 
-    <!-- Improved Sidebar -->
-    <div class="w-72 bg-[#111827] border-r border-gray-800 flex flex-col overflow-y-auto">
-      <!-- Logo -->
+    <!-- Sidebar -->
+    <div class="w-72 bg-[#111827] border-r border-gray-800 flex flex-col md:flex">
       <div class="p-5 border-b border-gray-800 flex items-center gap-3">
         <div class="w-9 h-9 bg-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">C</div>
         <div>
@@ -41,7 +40,6 @@
         </div>
       </div>
 
-      <!-- Search -->
       <div class="p-4">
         <div class="relative">
           <input id="search-input" type="text" placeholder="Search sentiment by topic or country..." 
@@ -50,8 +48,7 @@
         </div>
       </div>
 
-      <!-- Main Navigation - Always Visible -->
-      <nav class="flex-1 overflow-y-auto px-3 space-y-1 pb-6">
+      <nav class="flex-1 overflow-y-auto px-3 space-y-1">
         <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gray-800 text-white">
           <i class="fas fa-tachometer-alt"></i>
           <span class="font-medium">Overview Dashboard</span>
@@ -67,29 +64,25 @@
         </a>
       </nav>
 
-      <!-- Trust & Stats Section -->
-      <div class="mx-3 mb-6 space-y-3">
+      <!-- Stats Section - Improved Layout -->
+      <div class="mx-3 mt-4 space-y-3">
         <div class="bg-gray-900 rounded-2xl p-4 border border-gray-700">
           <p class="text-xs text-gray-400">X Posts Analyzed Today</p>
-          <p class="text-2xl font-semibold text-white">4,872,341</p>
-        </div>
-        <div class="bg-gray-900 rounded-2xl p-4 border border-gray-700">
-          <p class="text-xs text-gray-400">Grok AI Accuracy</p>
-          <p class="text-2xl font-semibold text-cyan-400">94.2%</p>
+          <p class="text-2xl font-semibold">4,872,341</p>
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div class="bg-gray-900 rounded-2xl p-4 border border-gray-700">
-            <p class="text-xs text-gray-400">Live Topics</p>
-            <p class="text-2xl font-semibold text-emerald-400">1</p>
+            <p class="text-xs text-gray-400">Grok AI Accuracy</p>
+            <p class="text-2xl font-semibold text-cyan-400">94.2%</p>
           </div>
           <div class="bg-gray-900 rounded-2xl p-4 border border-gray-700">
             <p class="text-xs text-gray-400">Countries Tracked</p>
-            <p class="text-2xl font-semibold text-white">18+</p>
+            <p class="text-2xl font-semibold">18+</p>
           </div>
         </div>
       </div>
 
-      <div class="p-4 border-t border-gray-800 text-xs text-gray-500">
+      <div class="p-4 border-t border-gray-800 text-xs text-gray-500 mt-auto">
         Connected to X Public Data 
         <span class="inline-flex items-center gap-1.5 text-emerald-400">
           <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> LIVE
