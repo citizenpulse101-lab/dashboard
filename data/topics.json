@@ -1,0 +1,48 @@
+{
+  "topics": [
+    {
+      "id": "israel-lebanon-talks",
+      "emoji": "🇱🇧🇮🇱",
+      "title": "Israel-Lebanon Direct Talks",
+      "category": "GEOPOLITICAL",
+      "summary": "Citizens on both sides express deep war fatigue and economic desperation — realities long ignored by political elites.",
+      "overallSentiment": -47,
+      "lebaneseSentiment": -62,
+      "israeliSentiment": -32,
+      "insights": [
+        "Economic survival is becoming a stronger driver than ideology",
+        "Israeli citizens demand clear Hezbollah disarmament guarantees",
+        "Clear gap between citizen pragmatism and official political posturing"
+      ],
+      "status": "LIVE"
+    },
+    {
+      "id": "arab-israeli-normalization",
+      "emoji": "🕊️",
+      "title": "Arab-Israeli Normalization",
+      "category": "GEOPOLITICAL",
+      "summary": "Citizens show growing interest in economic cooperation modeled after UAE and Bahrain success.",
+      "overallSentiment": 54,
+      "insights": [
+        "Youth prioritize jobs and stability over continued conflict",
+        "Many reference Abraham Accords economic benefits positively",
+        "Significant gap between citizen aspirations and official caution"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "id": "iran-regime",
+      "emoji": "🇮🇷",
+      "title": "US-Israel vs Iran & the Islamic Regime",
+      "category": "INTERNAL AFFAIRS",
+      "summary": "Iranian citizens and diaspora voices reveal much stronger opposition to the regime than state media admits.",
+      "overallSentiment": -67,
+      "insights": [
+        "Economic collapse driving widespread anti-regime sentiment",
+        "Regional publics increasingly view Iran-backed groups as destabilizing",
+        "Major divergence between official narratives and real citizen voice"
+      ],
+      "status": "ACTIVE"
+    }
+  ]
+}
