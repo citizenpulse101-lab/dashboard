@@ -11,25 +11,23 @@
     @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
   </style>
 </head>
-<body class="bg-[#0a0f1c] text-gray-200 min-h-screen">
+<body class="bg-[#0a0f1c] text-gray-200">
 
-  <div class="max-w-6xl mx-auto p-8">
-    
+  <div class="max-w-7xl mx-auto p-6">
+
     <!-- Header -->
-    <div class="flex justify-between items-start mb-10">
-      <div>
-        <div class="flex items-center gap-3">
-          <span class="text-5xl font-bold text-cyan-400">LBIL</span>
-          <div>
-            <h1 class="text-4xl font-bold">Israel-Lebanon Direct Talks under US Leadership</h1>
-            <p class="text-emerald-400 flex items-center gap-2 mt-2">
-              <span class="relative flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-              </span>
-              LIVE • Real-time Citizen Sentiment
-            </p>
-          </div>
+    <div class="flex justify-between items-start mb-8">
+      <div class="flex items-center gap-4">
+        <span class="text-6xl">🇱🇧🇮🇱</span>
+        <div>
+          <h1 class="text-4xl font-bold">Israel-Lebanon Direct Talks under US Leadership</h1>
+          <p class="text-emerald-400 flex items-center gap-2 mt-2">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            LIVE • Real-time Citizen Sentiment
+          </p>
         </div>
       </div>
       <a href="index.html" class="text-cyan-400 hover:text-white flex items-center gap-2">
@@ -37,43 +35,65 @@
       </a>
     </div>
 
-    <!-- Sentiment Cards -->
+    <!-- Overall Sentiment -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       <div class="bg-gray-900 rounded-3xl p-8 text-center">
-        <p class="text-gray-400">Overall Sentiment</p>
-        <p class="text-6xl font-bold text-red-400 mt-4">-47%</p>
+        <p class="text-gray-400">OVERALL SENTIMENT</p>
+        <p class="text-7xl font-bold text-red-400 mt-4">-47%</p>
         <p class="text-red-400 mt-2">High Conflict Fatigue</p>
       </div>
       <div class="bg-gray-900 rounded-3xl p-8 text-center">
-        <p class="text-gray-400">Lebanese Public</p>
+        <p class="text-gray-400">LEBANESE PUBLIC</p>
         <p class="text-6xl font-bold text-red-400 mt-4">-62%</p>
       </div>
       <div class="bg-gray-900 rounded-3xl p-8 text-center">
-        <p class="text-gray-400">Israeli Public</p>
+        <p class="text-gray-400">ISRAELI PUBLIC</p>
         <p class="text-6xl font-bold text-amber-400 mt-4">-32%</p>
       </div>
     </div>
 
-    <!-- Citizen Takeaways -->
-    <div class="bg-gray-900 rounded-3xl p-8">
-      <h3 class="text-xl font-semibold mb-6 flex items-center gap-3">
-        <span class="text-red-400">●</span> Citizen Takeaways (Last 24h)
-      </h3>
+    <!-- Citizen Reality vs Official Narratives -->
+    <div class="bg-gray-900 rounded-3xl p-8 mb-8">
+      <h3 class="text-xl font-semibold mb-6">Citizen Reality vs Official Narratives</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-300">
-        <ul class="space-y-4">
-          <li class="flex gap-3">• Strong war fatigue on both sides, but deep distrust in current leadership</li>
-          <li class="flex gap-3">• Youth (18-34) more open to US-mediated direct talks</li>
-        </ul>
-        <ul class="space-y-4">
-          <li class="flex gap-3">• Economic recovery is the strongest driver for peace support</li>
-          <li class="flex gap-3">• US involvement seen as more credible than previous indirect efforts</li>
-        </ul>
+        <div class="space-y-5">
+          <div class="flex gap-3">
+            <span class="text-red-400">•</span>
+            <p>Lebanese citizens show deep war fatigue and economic desperation — realities rarely acknowledged by their political elite.</p>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-red-400">•</span>
+            <p>Israeli public demands concrete Hezbollah disarmament guarantees before supporting any long-term deal.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div class="flex gap-3">
+            <span class="text-emerald-400">•</span>
+            <p>Both populations increasingly reference the economic success of UAE, Bahrain, and Morocco as a model worth pursuing.</p>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-cyan-400">•</span>
+            <p>US mediation is viewed as far more credible than Qatar, Turkey, or France by citizens on both sides.</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="mt-12 text-center text-gray-500">
-      Full interactive charts, country breakdown, and predictive scenarios available in 
-      <a href="plans.html" class="text-cyan-400 hover:underline">Plus Plan</a>.
+    <!-- Omitted Realities -->
+    <div class="bg-gray-900 rounded-3xl p-8">
+      <h3 class="text-xl font-semibold mb-6 text-orange-400">Omitted Realities Emerging from Citizen Voices</h3>
+      <ul class="space-y-4 text-sm text-gray-300">
+        <li class="flex gap-3">• Lebanese public frustration with Hezbollah’s economic and political dominance is much higher than official discourse admits.</li>
+        <li class="flex gap-3">• Economic collapse and daily survival concerns are stronger drivers for peace than ideological or territorial claims.</li>
+        <li class="flex gap-3">• There is growing citizen skepticism toward traditional mediators and a clear preference for direct US involvement.</li>
+        <li class="flex gap-3">• Many citizens on both sides quietly support practical cooperation even if full political normalization remains difficult.</li>
+      </ul>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="plans.html" class="inline-block px-12 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-3xl text-lg hover:scale-105 transition">
+        Unlock Full Deep Dive Report →
+      </a>
     </div>
   </div>
 
