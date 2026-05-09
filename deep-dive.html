@@ -7,40 +7,18 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  
-  <style>
-    .insight-square {
-      background: #1e2937;
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .insight-square:hover {
-      transform: scale(1.05);
-      background: #334155;
-    }
-  </style>
 </head>
 <body class="bg-[#0a0f1c] text-gray-200">
 
   <div class="max-w-6xl mx-auto p-8">
-
-    <!-- Header -->
     <div class="flex justify-between items-center mb-10">
       <div>
-        <span class="text-cyan-400 font-medium tracking-widest">DEEP DIVE REPORT</span>
+        <span class="text-cyan-400 font-medium">DEEP DIVE REPORT</span>
         <h1 class="text-4xl font-bold mt-2">Israel-Lebanon Direct Talks under US Leadership</h1>
       </div>
-      <div class="flex gap-4">
-        <button onclick="window.print()" class="px-6 py-3 border border-gray-600 rounded-2xl hover:bg-gray-800 flex items-center gap-2">
-          <i class="fas fa-download"></i> PDF
-        </button>
-        <a href="index.html" class="px-6 py-3 text-gray-400 hover:text-white">← Back to Dashboard</a>
-      </div>
+      <a href="index.html" class="text-cyan-400 hover:text-white">← Back to Dashboard</a>
     </div>
 
-    <!-- Overall Sentiment -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       <div class="bg-gray-900 rounded-3xl p-8 text-center">
         <p class="text-gray-400">OVERALL SENTIMENT</p>
@@ -56,5 +34,33 @@
       </div>
     </div>
 
-    <!-- Citizen Reality Squares -->
-    <div class="bg
+    <div class="bg-gray-900 rounded-3xl p-8 mb-8">
+      <h3 class="text-xl font-semibold mb-6">Citizen Reality</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">War Fatigue</p>
+          <p class="text-4xl font-bold text-red-400">78%</p>
+        </div>
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">Economic Drive</p>
+          <p class="text-4xl font-bold text-emerald-400">69%</p>
+        </div>
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">Security Demand</p>
+          <p class="text-4xl font-bold text-amber-400">81%</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-900 rounded-3xl p-8">
+      <h3 class="text-xl font-semibold mb-6 text-orange-400">Omitted Realities from Citizen Voices</h3>
+      <ul class="space-y-4 text-sm text-gray-300">
+        <li class="flex gap-3">• Lebanese citizens are exhausted by economic collapse and Hezbollah’s dominance</li>
+        <li class="flex gap-3">• Israeli public demands verifiable security guarantees before any trust in negotiations</li>
+        <li class="flex gap-3">• Many citizens quietly admire the economic success of the Abraham Accords model</li>
+        <li class="flex gap-3">• Deep frustration with traditional political elites and failed mediators</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
