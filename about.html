@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us • CitizenPulse</title>
+  <title>About • CitizenPulse</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
   <style>
-    .neon-blue { text-shadow: 0 0 15px #22d3ee; }
-    .section-card { background: #111827; border: 1px solid #334155; }
+    .neon-cyan { text-shadow: 0 0 15px #22d3ee; }
+    .section-card { 
+      background: #111827; 
+      border: 1px solid #334155; 
+    }
   </style>
 </head>
 <body class="bg-[#0a0f1c] text-gray-200">
@@ -19,86 +22,57 @@
     <!-- Header -->
     <div class="flex justify-between items-center mb-12">
       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 bg-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-4xl">C</div>
-        <h1 class="text-4xl font-bold tracking-tight neon-blue">CitizenPulse</h1>
+        <div class="w-11 h-11 bg-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-4xl">C</div>
+        <h1 class="text-4xl font-bold tracking-tighter neon-cyan">CitizenPulse</h1>
       </div>
-      <a href="index.html" class="text-cyan-400 hover:text-white">← Back to Dashboard</a>
+      <a href="index.html" class="text-cyan-400 hover:text-white flex items-center gap-2 text-lg">
+        ← Back to Dashboard
+      </a>
     </div>
 
     <h2 class="text-5xl font-bold mb-4">The Problem We're Solving</h2>
-    <p class="text-gray-400 max-w-3xl mb-12">An independent, citizen-owned mirror of public sentiment — contrasting what people actually say on X against narratives, official claims, and government statements.</p>
+    <p class="text-gray-400 max-w-3xl text-lg mb-12">
+      An independent, citizen-owned mirror of public sentiment — contrasting what people actually say on X against official narratives, media claims, and government statements.
+    </p>
 
-    <!-- Problem Cards -->
+    <!-- Problem Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
       <div class="section-card rounded-3xl p-8">
-        <h3 class="font-semibold text-lg mb-3">Traditional polls are broken</h3>
-        <p class="text-gray-400">Phone-based surveys suffer declining response rates. Government funding creates pressure. Question framing shapes outcomes. Sample sizes rarely exceed 45% approval thresholds.</p>
+        <h3 class="font-semibold text-xl mb-4">Traditional polls are broken</h3>
+        <p class="text-gray-400">Low response rates, government funding bias, leading questions, and small unrepresentative samples.</p>
       </div>
       <div class="section-card rounded-3xl p-8">
-        <h3 class="font-semibold text-lg mb-3">Media coverage is selective</h3>
-        <p class="text-gray-400">Official narratives dominate while citizen voices get amplified, re-interpreted, or ignored. Real-time Arab, Hebrew, Farsi, and English voices are often missing.</p>
+        <h3 class="font-semibold text-xl mb-4">Media coverage is selective</h3>
+        <p class="text-gray-400">Official narratives dominate while real citizen voices in Arabic, Hebrew, Farsi and English are often ignored or reinterpreted.</p>
       </div>
       <div class="section-card rounded-3xl p-8">
-        <h3 class="font-semibold text-lg mb-3">Governments misrepresent publics</h3>
-        <p class="text-gray-400">Leaders claim Arab publics are 54% in favor of normalization. They often use under 45% approval ratings.</p>
+        <h3 class="font-semibold text-xl mb-4">Governments misrepresent publics</h3>
+        <p class="text-gray-400">Leaders frequently claim public support that does not match real conversations happening on X.</p>
       </div>
       <div class="section-card rounded-3xl p-8">
-        <h3 class="font-semibold text-lg mb-3">The citizen voice is the missing data</h3>
-        <p class="text-gray-400">Billions of people speaking daily on X — the largest unrestricted source of real-world sentiment — is largely ignored by policy researchers.</p>
+        <h3 class="font-semibold text-xl mb-4">The citizen voice is missing</h3>
+        <p class="text-gray-400">Billions of daily authentic posts on X — the largest open public square — are largely ignored by traditional research.</p>
       </div>
     </div>
 
     <!-- Our Solution -->
     <div class="section-card rounded-3xl p-10 mb-16">
       <h2 class="text-3xl font-bold mb-6">Our Solution — X + Grok AI</h2>
-      <p class="text-gray-300 leading-relaxed max-w-3xl">
-        CitizenPulse sources data directly from the X API — millions of public posts in Arabic, Hebrew, English, Farsi, French, and more. 
-        We process them through Grok AI for real-time sentiment scoring. No phone surveys. No government funding. No hidden bias.
+      <p class="text-gray-300 text-lg leading-relaxed max-w-4xl">
+        CitizenPulse sources data directly from the X API — millions of public posts in multiple languages. 
+        We process them through Grok AI for real-time, unbiased sentiment analysis. 
+        No phone surveys. No government funding. No editorial filter.
       </p>
-    </div>
-
-    <!-- Intelligence Engine -->
-    <div class="mb-16">
-      <h3 class="text-2xl font-semibold mb-8">Intelligence Engine — What's Behind the Numbers</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <div class="section-card rounded-3xl p-6 text-center">X Public Data</div>
-        <div class="section-card rounded-3xl p-6 text-center">Grok AI Analysis</div>
-        <div class="section-card rounded-3xl p-6 text-center">Multi-Language</div>
-        <div class="section-card rounded-3xl p-6 text-center">Real-time Filtering</div>
-        <div class="section-card rounded-3xl p-6 text-center">Gap Analysis</div>
-        <div class="section-card rounded-3xl p-6 text-center">Daily Scoring</div>
-      </div>
-    </div>
-
-    <!-- Methodology -->
-    <div class="section-card rounded-3xl p-10 mb-16">
-      <h3 class="text-2xl font-semibold mb-8">Methodology</h3>
-      <ol class="space-y-6 text-gray-300">
-        <li><strong>1.</strong> Data Collection: Public X posts containing topic-relevant keywords...</li>
-        <li><strong>2.</strong> Filtering: Bot accounts, spam, and coordinated inauthentic behavior filtered out.</li>
-        <li><strong>3.</strong> Sentiment Scoring: Grok AI classifies each post...</li>
-        <li><strong>4.</strong> Official Account Tracking: Government statements analyzed separately...</li>
-        <li><strong>5.</strong> Scores Updated Daily: All sentiment scores recalculated every 24 hours...</li>
-      </ol>
-    </div>
-
-    <!-- Limitations & Transparency -->
-    <div class="section-card rounded-3xl p-10 mb-16">
-      <h3 class="text-2xl font-semibold mb-6">Limitations & Transparency</h3>
-      <ul class="space-y-4 text-gray-400">
-        <li>• X users are not a perfect mirror of the general population</li>
-        <li>• We publish corrections when methodology disputes are welcome</li>
-        <li>• CitizenPulse is independent — no government or political funding</li>
-      </ul>
     </div>
 
     <!-- Mission -->
     <div class="section-card rounded-3xl p-10">
-      <h3 class="text-2xl font-semibold mb-6">Our Mission</h3>
-      <p class="text-gray-300 leading-relaxed">
-        We systematically under-represent citizen voices through self-censorship, editorial bias, or political pressure. 
-        CitizenPulse is not a replacement for traditional research — it is the missing half of the picture.
+      <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        To systematically under-represent citizen voices through self-censorship, editorial bias, or political pressure. 
+        CitizenPulse is the missing half of the picture — giving power back to real public opinion.
       </p>
+      <p class="text-cyan-400 mt-8 text-sm">Independent • Transparent • Citizen-First • Powered by X Public Data + Grok AI</p>
     </div>
   </div>
 </body>
