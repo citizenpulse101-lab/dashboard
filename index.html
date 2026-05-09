@@ -66,18 +66,27 @@
         </a>
       </nav>
 
-      <div class="mx-3 mb-4 bg-gray-950 border border-gray-700 rounded-3xl p-4">
-        <p class="text-xs uppercase tracking-widest text-cyan-400 mb-3 flex items-center gap-2">
-          <i class="fas fa-fire"></i> TRENDING NOW
-        </p>
-        <div class="space-y-3 text-sm">
-          <div class="text-gray-300">• Israel-Lebanon Direct Talks</div>
-          <div class="text-gray-300">• Arab-Israeli Normalization</div>
-          <div class="text-gray-300">• Iran Regime Sentiment</div>
+      <!-- Key Stats Section (replacing Trending Now) -->
+      <div class="mx-3 mt-4 space-y-3">
+        <div class="bg-gray-900 rounded-2xl p-4">
+          <p class="text-xs text-gray-400">X Posts Analyzed Today</p>
+          <p class="text-2xl font-semibold">4,872,341</p>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-4">
+          <p class="text-xs text-gray-400">Grok AI Accuracy</p>
+          <p class="text-2xl font-semibold text-cyan-400">94.2%</p>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-4">
+          <p class="text-xs text-gray-400">Live Topics</p>
+          <p class="text-2xl font-semibold text-emerald-400">1</p>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-4">
+          <p class="text-xs text-gray-400">Countries Tracked</p>
+          <p class="text-2xl font-semibold">18+</p>
         </div>
       </div>
 
-      <div class="p-4 border-t border-gray-800 text-xs text-gray-500">
+      <div class="p-4 border-t border-gray-800 text-xs text-gray-500 mt-auto">
         Connected to X Public Data 
         <span class="inline-flex items-center gap-1.5 text-emerald-400">
           <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> LIVE
@@ -89,10 +98,6 @@
     <div class="flex-1 overflow-auto">
       <div class="bg-[#0f172a] border-b border-gray-800 px-8 py-5 flex items-center justify-between">
         <h2 class="text-3xl font-semibold">Trending Topics Dashboard</h2>
-        <div class="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-3xl">
-          <span class="text-emerald-400">●</span>
-          <span class="text-sm">Global</span>
-        </div>
       </div>
 
       <div class="p-8">
@@ -167,7 +172,7 @@
       const container = document.getElementById('topic-grid');
       container.innerHTML = '';
 
-      topicsData.forEach((topic, index) => {
+      topicsData.forEach((topic) => {
         const html = `
           <div class="topic-card rounded-3xl overflow-hidden cursor-pointer flex flex-col h-full">
             <div class="p-6 flex-1">
