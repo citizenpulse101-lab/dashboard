@@ -9,98 +9,147 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
   <style>
-    .neon-blue { text-shadow: 0 0 15px #22d3ee; }
+    .neon-cyan { text-shadow: 0 0 15px #22d3ee; }
     .live-dot { animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .section-card { background: #111827; border: 1px solid #334155; }
-    .tab-active { border-bottom: 3px solid #22d3ee; color: white; }
+    
+    .nav-pill {
+      transition: all 0.3s ease;
+    }
+    .nav-pill-active {
+      background-color: #1e40af;
+      color: white;
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+    }
+    .section-card {
+      background: #111827;
+      border: 1px solid #334155;
+    }
   </style>
 </head>
-<body class="bg-[#0a0f1c] text-gray-200">
+<body class="bg-[#0a0f1c] text-gray-200 min-h-screen">
 
-  <div class="flex h-screen">
-
-    <!-- Sidebar -->
-    <div class="w-72 bg-[#111827] border-r border-gray-800 flex flex-col">
-      <div class="p-6 border-b border-gray-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-[#0d1117] border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 bg-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-3xl">C</div>
-          <div>
-            <h1 class="text-3xl font-semibold tracking-tighter neon-blue">CitizenPulse</h1>
-            <p class="text-xs text-cyan-400 flex items-center gap-2">
-              <span class="live-dot inline-block w-2.5 h-2.5 bg-emerald-400 rounded-full"></span>
-              LIVE • Grok AI
-            </p>
+          <h1 class="text-3xl font-bold tracking-tighter neon-cyan">CitizenPulse</h1>
+        </div>
+
+        <nav class="flex bg-[#161b22] border border-gray-700 rounded-3xl p-1.5 gap-1">
+          <button onclick="switchTab(0)" id="tab0" class="nav-pill nav-pill-active flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium">
+            <i class="fas fa-compass"></i> Topics
+          </button>
+          <button onclick="switchTab(1)" id="tab1" class="nav-pill flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium text-gray-400 hover:text-white">
+            <i class="fas fa-chart-line"></i> Live Intelligence
+          </button>
+          <button onclick="switchTab(2)" id="tab2" class="nav-pill flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium text-gray-400 hover:text-white">
+            <i class="fas fa-info-circle"></i> About
+          </button>
+        </nav>
+
+        <div class="flex items-center gap-3 text-sm">
+          <div class="flex items-center gap-2 bg-emerald-500/10 text-emerald-400 px-4 py-2 rounded-2xl">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+            </span>
+            LIVE
           </div>
+          <span class="text-gray-400">4.87M posts analyzed</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-6 py-8" id="main-content">
+
+    <!-- TAB 0: Topics -->
+    <div id="content-0" class="tab-content">
+      <h1 class="text-5xl font-bold">What Citizens <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Actually Think</span></h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12" id="topic-grid"></div>
+    </div>
+
+    <!-- TAB 1: Live Intelligence -->
+    <div id="content-1" class="tab-content hidden">
+      <div class="mb-10">
+        <h1 class="text-4xl font-bold">Israel-Lebanon Direct Talks under US Leadership</h1>
+        <p class="text-emerald-400 flex items-center gap-2 mt-2">
+          <span class="live-dot inline-block w-3 h-3 bg-emerald-400 rounded-full"></span>
+          Real-time Grok AI Analysis • May 2026
+        </p>
+      </div>
+
+      <!-- Sentiment Overview -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="section-card rounded-3xl p-8 text-center">
+          <p class="text-gray-400">OVERALL SENTIMENT</p>
+          <p class="text-6xl font-bold text-red-400 mt-4">-47%</p>
+        </div>
+        <div class="section-card rounded-3xl p-8 text-center">
+          <p class="text-gray-400">LEBANESE PUBLIC</p>
+          <p class="text-6xl font-bold text-red-400 mt-4">-62%</p>
+        </div>
+        <div class="section-card rounded-3xl p-8 text-center">
+          <p class="text-gray-400">ISRAELI PUBLIC</p>
+          <p class="text-6xl font-bold text-amber-400 mt-4">-32%</p>
         </div>
       </div>
 
-      <nav class="flex-1 p-4 space-y-1">
-        <button onclick="switchTab(0)" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left tab-active" id="tab0">
-          <i class="fas fa-tachometer-alt"></i> Overview
-        </button>
-        <button onclick="switchTab(1)" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left" id="tab1">
-          <i class="fas fa-chart-line"></i> Live Intelligence
-        </button>
-        <button onclick="switchTab(2)" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left" id="tab2">
-          <i class="fas fa-info-circle"></i> About
-        </button>
-      </nav>
+      <!-- Refined Charts -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div class="section-card rounded-3xl p-8">
+          <h3 class="font-semibold mb-6">Lebanese Public Sentiment</h3>
+          <canvas id="lebaneseChart" height="160"></canvas>
+        </div>
+        <div class="section-card rounded-3xl p-8">
+          <h3 class="font-semibold mb-6">Israeli Public Sentiment</h3>
+          <canvas id="israeliChart" height="160"></canvas>
+        </div>
+      </div>
 
-      <div class="p-6 border-t border-gray-800">
-        <div class="bg-gray-900 rounded-3xl p-5 space-y-4 text-sm">
-          <div><span class="text-gray-400">Posts Analyzed Today</span><br><span class="text-2xl font-semibold">4.87M</span></div>
-          <div class="grid grid-cols-2 gap-4">
-            <div><span class="text-gray-400">Grok AI Accuracy</span><br><span class="text-2xl font-semibold text-cyan-400">94.2%</span></div>
-            <div><span class="text-gray-400">Countries</span><br><span class="text-2xl font-semibold">18+</span></div>
+      <!-- Path to Peace -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="section-card rounded-3xl p-8">
+          <h3 class="font-semibold mb-6">Citizen Path to Peace</h3>
+          <div class="space-y-6">
+            <div class="flex justify-between"><span class="text-emerald-400">Economic Normalization</span><span class="font-bold text-emerald-400">64%</span></div>
+            <div class="flex justify-between"><span class="text-cyan-400">Abraham Accords Model</span><span class="font-bold text-cyan-400">73%</span></div>
+            <div class="flex justify-between"><span class="text-amber-400">Hezbollah Disarmament Required</span><span class="font-bold text-amber-400">57%</span></div>
+          </div>
+        </div>
+
+        <div class="section-card rounded-3xl p-8">
+          <h3 class="font-semibold mb-6">Leader Trust (Citizen View)</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center"><span>Trump Administration</span><span class="text-cyan-400 font-bold">+24%</span></div>
+            <div class="flex justify-between items-center"><span>Saudi Crown Prince</span><span class="text-emerald-400 font-bold">+18%</span></div>
+            <div class="flex justify-between items-center"><span>Lebanese Leadership</span><span class="text-red-400 font-bold">-68%</span></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Main Content Area -->
-    <div class="flex-1 overflow-auto" id="main-content">
-
-      <!-- TAB 0: Overview -->
-      <div id="content-0" class="tab-content p-10">
-        <h1 class="text-5xl font-bold">What Citizens <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Actually Think</span></h1>
-        <h3 class="text-xl font-semibold mt-10 mb-8">Active Topics</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="topic-grid"></div>
-      </div>
-
-      <!-- TAB 1: Live Intelligence -->
-      <div id="content-1" class="tab-content hidden p-8">
-        <!-- Israel-Lebanon Rich Dashboard Content -->
-        <div class="max-w-7xl mx-auto">
-          <h1 class="text-4xl font-bold mb-8">Israel-Lebanon Direct Talks under US Leadership</h1>
-          <!-- All rich content from previous version (sentiment, charts, etc.) goes here -->
-          <!-- (Paste the rich live-topic content here if needed - shortened for space) -->
-          <p class="text-xl text-gray-400">Full Intelligence Dashboard with charts, sentiment analysis, Abraham Accords comparison, and more is ready.</p>
-          <p class="mt-4 text-cyan-400">This section contains all advanced analytics, timelines, and comparisons.</p>
-        </div>
-      </div>
-
-      <!-- TAB 2: About -->
-      <div id="content-2" class="tab-content hidden p-10 max-w-4xl">
-        <h2 class="text-4xl font-bold mb-8">About CitizenPulse</h2>
-        <p class="text-gray-400 text-lg leading-relaxed">An independent, citizen-owned mirror of public sentiment — contrasting what people actually say on X against official narratives and government statements.</p>
-        <!-- Full About content from previous message can be pasted here -->
-      </div>
+    <!-- TAB 2: About -->
+    <div id="content-2" class="tab-content hidden">
+      <h2 class="text-4xl font-bold mb-8">About CitizenPulse</h2>
+      <p class="text-gray-400 max-w-3xl text-lg">An independent, citizen-owned mirror of public sentiment from X, powered by Grok AI.</p>
     </div>
-  </div>
+  </main>
 
   <script>
-    // Tab Switching
     function switchTab(n) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.getElementById(`content-${n}`).classList.remove('hidden');
-      
-      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
-        btn.classList.toggle('tab-active', i === n);
+
+      document.querySelectorAll('.nav-pill').forEach((el, i) => {
+        el.classList.toggle('nav-pill-active', i === n);
       });
     }
 
-    // Sample Topics for Overview
     const topicsData = [
       { emoji: "🇱🇧🇮🇱", title: "Israel-Lebanon Direct Talks", summary: "War fatigue vs security demands under US mediation" },
       { emoji: "🕊️", title: "Abraham Accords Expansion", summary: "Citizens demand economic normalization" },
@@ -110,29 +159,54 @@
     function renderTopics() {
       const container = document.getElementById('topic-grid');
       container.innerHTML = '';
-      topicsData.forEach(topic => {
+      topicsData.forEach(t => {
         container.innerHTML += `
-          <div onclick="switchTab(1)" class="topic-card rounded-3xl overflow-hidden cursor-pointer h-full flex flex-col bg-[#0f172a] border border-gray-700 hover:border-cyan-400">
-            <div class="p-8 flex-1">
-              <div class="flex justify-between">
-                <span class="text-6xl">${topic.emoji}</span>
-                <span class="px-5 py-2 text-xs bg-emerald-500/10 text-emerald-400 rounded-2xl">LIVE</span>
-              </div>
-              <h4 class="text-2xl font-semibold mt-8">${topic.title}</h4>
-              <p class="text-gray-400 mt-4">${topic.summary}</p>
+          <div onclick="switchTab(1)" class="bg-[#161b22] border border-gray-700 hover:border-cyan-400 rounded-3xl p-8 cursor-pointer transition-all">
+            <div class="flex justify-between mb-6">
+              <span class="text-6xl">${t.emoji}</span>
+              <span class="px-4 py-1 text-xs bg-emerald-500/10 text-emerald-400 rounded-2xl">LIVE</span>
             </div>
-            <div class="p-6 border-t border-gray-700">
-              <button class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl">
-                Open Intelligence Dashboard →
-              </button>
-            </div>
+            <h3 class="text-2xl font-semibold">${t.title}</h3>
+            <p class="text-gray-400 mt-3">${t.summary}</p>
           </div>`;
+      });
+    }
+
+    // Consistent Brand Colors Charts
+    function initCharts() {
+      // Lebanese Chart
+      new Chart(document.getElementById('lebaneseChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Peace Desire', 'Hezbollah Role', 'Economy', 'US/Trump Trust'],
+          datasets: [{
+            label: 'Lebanese Sentiment',
+            data: [68, -55, -89, 42],
+            backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee']
+          }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false }}}
+      });
+
+      // Israeli Chart
+      new Chart(document.getElementById('israeliChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Peace Desire', 'Hezbollah Role', 'Economy', 'US/Trump Trust'],
+          datasets: [{
+            label: 'Israeli Sentiment',
+            data: [51, -82, -34, 67],
+            backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee']
+          }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false }}}
       });
     }
 
     // Initialize
     renderTopics();
-    switchTab(0); // Start on Overview
+    switchTab(0);
+    setTimeout(initCharts, 300);
   </script>
 </body>
 </html>
