@@ -3,185 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CitizenPulse • Real Citizen Sentiment</title>
+  <title>Live • Israel-Lebanon Direct Talks - CitizenPulse</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   
   <style>
-    .neon-blue { text-shadow: 0 0 12px #22d3ee; }
-    .live-dot { animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .topic-card { 
-      transition: all 0.3s ease; 
-      background: #0f172a;
-      border: 1px solid #334155;
-    }
-    .topic-card:hover { 
-      transform: translateY(-6px); 
-      border-color: #22d3ee;
-    }
+    .live-pulse { animation: livePulse 2s infinite; }
+    @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
   </style>
 </head>
 <body class="bg-[#0a0f1c] text-gray-200">
 
-  <div class="flex h-screen">
+  <div class="max-w-7xl mx-auto p-6">
 
-    <!-- Sidebar -->
-    <div class="w-72 bg-[#111827] border-r border-gray-800 flex flex-col">
-      <div class="p-5 border-b border-gray-800 flex items-center gap-3">
-        <div class="w-9 h-9 bg-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">C</div>
+    <!-- Header -->
+    <div class="flex justify-between items-start mb-8">
+      <div class="flex items-center gap-4">
+        <span class="text-6xl">🇱🇧🇮🇱</span>
         <div>
-          <h1 class="text-2xl font-semibold tracking-tight neon-blue">CitizenPulse</h1>
-          <p class="text-xs text-cyan-400 flex items-center gap-1.5">
-            <span class="live-dot inline-block w-2 h-2 bg-emerald-400 rounded-full"></span>
-            Real-time • Grok AI
+          <h1 class="text-4xl font-bold">Israel-Lebanon Direct Talks under US Leadership</h1>
+          <p class="text-emerald-400 flex items-center gap-2 mt-2">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            LIVE • Real-time Citizen Sentiment
           </p>
         </div>
       </div>
+      <a href="index.html" class="text-cyan-400 hover:text-white flex items-center gap-2">
+        ← Back to Overview
+      </a>
+    </div>
 
-      <div class="p-4">
-        <div class="relative">
-          <input id="search-input" type="text" placeholder="Search sentiment by topic or country..." 
-                 class="w-full bg-gray-900 border border-gray-700 rounded-2xl py-4 pl-12 text-sm focus:outline-none focus:border-cyan-500">
-          <i class="fas fa-search absolute left-5 top-4.5 text-gray-500"></i>
-        </div>
+    <!-- Overall Sentiment -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-gray-900 rounded-3xl p-8 text-center">
+        <p class="text-gray-400">OVERALL SENTIMENT</p>
+        <p class="text-7xl font-bold text-red-400 mt-4">-47%</p>
+        <p class="text-red-400 mt-2">High Conflict Fatigue</p>
       </div>
-
-      <nav class="flex-1 overflow-y-auto px-3 space-y-1">
-        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gray-800 text-white">
-          <i class="fas fa-tachometer-alt"></i>
-          <span class="font-medium">Overview Dashboard</span>
-        </a>
-        <a href="live-topic.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
-          <i class="fas fa-chart-line"></i>
-          <span>Live Topic Sentiment</span>
-          <span class="ml-auto bg-cyan-500 text-white text-xs px-2.5 py-0.5 rounded-full">NEW</span>
-        </a>
-        <a href="compare.html" class="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gray-800 text-gray-400 hover:text-white">
-          <i class="fas fa-balance-scale"></i>
-          <span>Compare</span>
-        </a>
-      </nav>
-
-      <!-- Stats -->
-      <div class="mx-3 mt-4 space-y-3">
-        <div class="bg-gray-900 rounded-2xl p-4">
-          <p class="text-xs text-gray-400">X Posts Analyzed Today</p>
-          <p class="text-2xl font-semibold">4,872,341</p>
-        </div>
-        <div class="bg-gray-900 rounded-2xl p-4">
-          <p class="text-xs text-gray-400">Grok AI Accuracy</p>
-          <p class="text-2xl font-semibold text-cyan-400">94.2%</p>
-        </div>
-        <div class="bg-gray-900 rounded-2xl p-4">
-          <p class="text-xs text-gray-400">Live Topics</p>
-          <p class="text-2xl font-semibold text-emerald-400">1</p>
-        </div>
-        <div class="bg-gray-900 rounded-2xl p-4">
-          <p class="text-xs text-gray-400">Countries Tracked</p>
-          <p class="text-2xl font-semibold">18+</p>
-        </div>
+      <div class="bg-gray-900 rounded-3xl p-8 text-center">
+        <p class="text-gray-400">LEBANESE PUBLIC</p>
+        <p class="text-6xl font-bold text-red-400 mt-4">-62%</p>
       </div>
-
-      <div class="p-4 border-t border-gray-800 text-xs text-gray-500 mt-auto">
-        Connected to X Public Data 
-        <span class="inline-flex items-center gap-1.5 text-emerald-400">
-          <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> LIVE
-        </span>
+      <div class="bg-gray-900 rounded-3xl p-8 text-center">
+        <p class="text-gray-400">ISRAELI PUBLIC</p>
+        <p class="text-6xl font-bold text-amber-400 mt-4">-32%</p>
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="flex-1 overflow-auto">
-      <div class="bg-[#0f172a] border-b border-gray-800 px-8 py-5 flex items-center justify-between">
-        <h2 class="text-3xl font-semibold">Trending Topics Dashboard</h2>
-      </div>
-
-      <div class="p-8">
-        <div class="mb-10">
-          <p class="text-cyan-400 font-medium tracking-widest text-sm">REAL CITIZEN SENTIMENT FROM X • POWERED BY GROK AI</p>
-          <h1 class="text-5xl font-bold mt-2">What Citizens <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Actually Think</span></h1>
+    <!-- Dynamic Square Insights -->
+    <div class="bg-gray-900 rounded-3xl p-8 mb-8">
+      <h3 class="text-xl font-semibold mb-6">Citizen Reality</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">War Fatigue</p>
+          <p class="text-4xl font-bold text-red-400">78%</p>
         </div>
-
-        <h3 class="text-xl font-semibold mb-6">Active Topics</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="topic-grid"></div>
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">Economic Drive</p>
+          <p class="text-4xl font-bold text-emerald-400">69%</p>
+        </div>
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">Security Demand</p>
+          <p class="text-4xl font-bold text-amber-400">81%</p>
+        </div>
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">Elite Distrust</p>
+          <p class="text-4xl font-bold text-red-400">79%</p>
+        </div>
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">US Mediation Trust</p>
+          <p class="text-4xl font-bold text-cyan-400">64%</p>
+        </div>
+        <div class="insight-square text-center">
+          <p class="text-xs text-gray-400">Economic Peace Model</p>
+          <p class="text-4xl font-bold text-emerald-400">67%</p>
+        </div>
       </div>
+    </div>
+
+    <!-- Omitted Realities -->
+    <div class="bg-gray-900 rounded-3xl p-8">
+      <h3 class="text-xl font-semibold mb-6 text-orange-400">Omitted Realities from Citizen Voices</h3>
+      <ul class="space-y-4 text-sm text-gray-300">
+        <li class="flex gap-3">• Lebanese citizens are exhausted by economic collapse and Hezbollah’s dominance</li>
+        <li class="flex gap-3">• Israeli public demands clear security guarantees before trusting any agreement</li>
+        <li class="flex gap-3">• Many citizens quietly admire the economic success of the Abraham Accords model</li>
+        <li class="flex gap-3">• Deep distrust in traditional political elites and mediators on both sides</li>
+      </ul>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="deep-dive.html" class="inline-block px-12 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-3xl text-lg hover:scale-105 transition">
+        Explore Full Citizen Voices →
+      </a>
     </div>
   </div>
 
-  <script>
-    const topicsData = [
-      { 
-        emoji: "🕊️", 
-        title: "Arab-Israeli Normalization", 
-        category: "GEOPOLITICAL", 
-        summary: "Citizens demand economic cooperation while governments remain cautious.",
-        squares: [
-          { label: "Economic Hope", value: "67%", color: "emerald" },
-          { label: "Youth Support", value: "74%", color: "cyan" },
-          { label: "Gap to Official", value: "+29pts", color: "orange" }
-        ]
-      },
-      { 
-        emoji: "🇱🇧🇮🇱", 
-        title: "Israel-Lebanon Direct Talks", 
-        category: "GEOPOLITICAL", 
-        summary: "War fatigue vs elite posturing — citizens want practical peace.",
-        squares: [
-          { label: "War Fatigue", value: "78%", color: "red" },
-          { label: "Economic Drive", value: "69%", color: "emerald" },
-          { label: "Security Demand", value: "81%", color: "amber" }
-        ]
-      },
-      { 
-        emoji: "🇮🇷", 
-        title: "US-Israel vs Iran & the Islamic Regime", 
-        category: "INTERNAL AFFAIRS", 
-        summary: "Citizens reject regime narratives far more strongly than state media admits.",
-        squares: [
-          { label: "Anti-Regime", value: "82%", color: "red" },
-          { label: "Economic Anger", value: "89%", color: "red" },
-          { label: "Gap to Official", value: "+41pts", color: "orange" }
-        ]
-      }
-    ];
-
-    function renderTopics() {
-      const container = document.getElementById('topic-grid');
-      container.innerHTML = '';
-
-      topicsData.forEach((topic) => {
-        const html = `
-          <div class="topic-card rounded-3xl overflow-hidden cursor-pointer flex flex-col h-full">
-            <div class="p-6 flex-1">
-              <div class="flex items-center justify-between">
-                <span class="text-5xl">${topic.emoji}</span>
-                <span class="px-4 py-1 text-xs bg-emerald-500/10 text-emerald-400 rounded-full font-medium">LIVE</span>
-              </div>
-              <h4 class="font-semibold text-xl mt-6">${topic.title}</h4>
-              <p class="text-gray-400 text-sm mt-4">${topic.summary}</p>
-
-              <div class="mt-6 grid grid-cols-3 gap-3">
-                ${topic.squares.map(s => `
-                  <div class="insight-square text-center">
-                    <p class="text-xs text-gray-400">${s.label}</p>
-                    <p class="text-2xl font-bold ${s.color === 'emerald' ? 'text-emerald-400' : s.color === 'red' ? 'text-red-400' : s.color === 'cyan' ? 'text-cyan-400' : 'text-orange-400'}">${s.value}</p>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-            <div class="border-t border-gray-700 p-5 mt-auto">
-              <a href="deep-dive.html" class="block w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-semibold rounded-2xl text-center">
-                Explore Citizen Voices →
-              </a>
-            </div>
-          </div>`;
-        container.innerHTML += html;
-      });
-    }
-
-    renderTopics();
-  </script>
 </body>
 </html>
