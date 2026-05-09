@@ -24,7 +24,7 @@
       transform: translateY(-6px); 
       border-color: #22d3ee;
     }
-    .mini-chart { height: 60px; }
+    .mini-chart { height: 65px; }
   </style>
 </head>
 <body class="bg-[#0a0f1c] text-gray-200">
@@ -128,10 +128,11 @@
         summary: "Citizens show growing pragmatism and interest in economic cooperation despite official caution.",
         insights: [
           "Many reference UAE, Bahrain success stories",
-          "Youth prioritize jobs over conflict",
+          "Youth prioritize jobs and stability",
           "Clear gap between citizen aspirations and government rhetoric"
         ],
-        chartData: [65, 58, 42] // Sample sentiment by age
+        chartData: [65, 58, 42],
+        chartLabels: ['18-34', '35-54', '55+']
       },
       { 
         emoji: "🇱🇧🇮🇱", 
@@ -143,7 +144,8 @@
           "Israeli citizens demand security guarantees",
           "Citizens favor practical outcomes over ideology"
         ],
-        chartData: [45, 38, 52]
+        chartData: [45, 38, 52],
+        chartLabels: ['18-34', '35-54', '55+']
       },
       { 
         emoji: "🇮🇷", 
@@ -151,11 +153,12 @@
         category: "INTERNAL AFFAIRS", 
         summary: "Iranian citizens and diaspora express far stronger opposition to the regime than official channels admit.",
         insights: [
-          "Economic collapse fueling anti-regime sentiment",
+          "Economic collapse driving anti-regime sentiment",
           "Regional publics see Iran-backed groups as destabilizing",
           "Major gap between state media and real voices"
         ],
-        chartData: [82, 71, 55]
+        chartData: [82, 71, 55],
+        chartLabels: ['18-34', '35-54', '55+']
       }
     ];
 
@@ -186,9 +189,9 @@
                 </ul>
               </div>
 
-              <!-- Small Sentiment Chart -->
+              <!-- Mini Chart with Interactive Tooltips -->
               <div class="mt-6">
-                <p class="text-xs text-gray-400 mb-2">Sentiment Trend</p>
+                <p class="text-xs text-gray-400 mb-2">Sentiment by Age Group</p>
                 <canvas id="miniChart-${index}" class="mini-chart"></canvas>
               </div>
             </div>
@@ -201,29 +204,46 @@
         container.innerHTML += html;
       });
 
-      // Render mini charts after DOM update
+      // Render charts with rich tooltips
       setTimeout(() => {
         topicsData.forEach((topic, index) => {
           new Chart(document.getElementById(`miniChart-${index}`), {
             type: 'bar',
             data: {
-              labels: ['18-34', '35-54', '55+'],
+              labels: topic.chartLabels,
               datasets: [{
+                label: 'Sentiment %',
                 data: topic.chartData,
                 backgroundColor: ['#22d3ee', '#eab308', '#ef4444'],
                 borderWidth: 0,
-                borderRadius: 4
+                borderRadius: 6,
+                hoverBackgroundColor: '#67e8f9'
               }]
             },
             options: {
               responsive: true,
               maintainAspectRatio: false,
-              plugins: { legend: { display: false } },
-              scales: { x: { display: false }, y: { display: false } }
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  backgroundColor: '#1e2937',
+                  titleColor: '#e0f2fe',
+                  bodyColor: '#bae6fd',
+                  padding: 12,
+                  displayColors: false,
+                  callbacks: {
+                    label: (context) => `${context.raw}% Sentiment`
+                  }
+                }
+              },
+              scales: {
+                x: { display: false },
+                y: { display: false }
+              }
             }
           });
         });
-      }, 100);
+      }, 150);
     }
 
     renderTopics();
