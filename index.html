@@ -73,7 +73,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12" id="topic-grid"></div>
     </div>
 
-    <!-- TAB 1: Live Intelligence -->
+    <!-- TAB 1: Live Intelligence - FULL RICH VIEW -->
     <div id="content-1" class="tab-content hidden">
       <div class="mb-10">
         <h1 class="text-4xl font-bold">Israel-Lebanon Direct Talks under US Leadership</h1>
@@ -99,7 +99,7 @@
         </div>
       </div>
 
-      <!-- Refined Charts -->
+      <!-- Charts -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <div class="section-card rounded-3xl p-8">
           <h3 class="font-semibold mb-6">Lebanese Public Sentiment</h3>
@@ -111,32 +111,43 @@
         </div>
       </div>
 
-      <!-- Path to Peace -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Path to Peace + Leader Trust -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <div class="section-card rounded-3xl p-8">
           <h3 class="font-semibold mb-6">Citizen Path to Peace</h3>
           <div class="space-y-6">
-            <div class="flex justify-between"><span class="text-emerald-400">Economic Normalization</span><span class="font-bold text-emerald-400">64%</span></div>
-            <div class="flex justify-between"><span class="text-cyan-400">Abraham Accords Model</span><span class="font-bold text-cyan-400">73%</span></div>
-            <div class="flex justify-between"><span class="text-amber-400">Hezbollah Disarmament Required</span><span class="font-bold text-amber-400">57%</span></div>
+            <div class="flex justify-between"><span>Economic Normalization</span><span class="text-emerald-400 font-bold">64%</span></div>
+            <div class="flex justify-between"><span>Abraham Accords Model</span><span class="text-cyan-400 font-bold">73%</span></div>
+            <div class="flex justify-between"><span>Hezbollah Disarmament</span><span class="text-amber-400 font-bold">57%</span></div>
           </div>
         </div>
 
         <div class="section-card rounded-3xl p-8">
           <h3 class="font-semibold mb-6">Leader Trust (Citizen View)</h3>
           <div class="space-y-4">
-            <div class="flex justify-between items-center"><span>Trump Administration</span><span class="text-cyan-400 font-bold">+24%</span></div>
-            <div class="flex justify-between items-center"><span>Saudi Crown Prince</span><span class="text-emerald-400 font-bold">+18%</span></div>
-            <div class="flex justify-between items-center"><span>Lebanese Leadership</span><span class="text-red-400 font-bold">-68%</span></div>
+            <div class="flex justify-between"><span>Trump Administration</span><span class="text-cyan-400 font-bold">+24%</span></div>
+            <div class="flex justify-between"><span>Saudi Crown Prince</span><span class="text-emerald-400 font-bold">+18%</span></div>
+            <div class="flex justify-between"><span>Lebanese Leadership</span><span class="text-red-400 font-bold">-68%</span></div>
           </div>
         </div>
+      </div>
+
+      <!-- Omitted Realities -->
+      <div class="section-card rounded-3xl p-8">
+        <h3 class="font-semibold text-orange-400 mb-6">Omitted Realities from Citizen Voices</h3>
+        <ul class="space-y-3 text-gray-300">
+          <li>• Lebanese citizens exhausted by economic collapse and Hezbollah’s dominance</li>
+          <li>• Israeli public demands verifiable security guarantees before any deal</li>
+          <li>• Many citizens admire the economic success of the Abraham Accords model</li>
+          <li>• Citizens are split on Hezbollah: some see it as part of social fabric, others as a major obstacle to peace</li>
+        </ul>
       </div>
     </div>
 
     <!-- TAB 2: About -->
     <div id="content-2" class="tab-content hidden">
       <h2 class="text-4xl font-bold mb-8">About CitizenPulse</h2>
-      <p class="text-gray-400 max-w-3xl text-lg">An independent, citizen-owned mirror of public sentiment from X, powered by Grok AI.</p>
+      <p class="text-gray-400 max-w-3xl text-lg">An independent, citizen-owned mirror of public sentiment from X, powered by Grok AI. We surface what people actually say versus official narratives.</p>
     </div>
   </main>
 
@@ -172,41 +183,30 @@
       });
     }
 
-    // Consistent Brand Colors Charts
     function initCharts() {
-      // Lebanese Chart
       new Chart(document.getElementById('lebaneseChart'), {
         type: 'bar',
         data: {
-          labels: ['Peace Desire', 'Hezbollah Role', 'Economy', 'US/Trump Trust'],
-          datasets: [{
-            label: 'Lebanese Sentiment',
-            data: [68, -55, -89, 42],
-            backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee']
-          }]
+          labels: ['Peace Desire', 'Hezbollah Role', 'Economy', 'US/Trump'],
+          datasets: [{ data: [68, -55, -89, 42], backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee'] }]
         },
-        options: { responsive: true, plugins: { legend: { display: false }}}
+        options: { responsive: true, plugins: { legend: { display: false } }}
       });
 
-      // Israeli Chart
       new Chart(document.getElementById('israeliChart'), {
         type: 'bar',
         data: {
-          labels: ['Peace Desire', 'Hezbollah Role', 'Economy', 'US/Trump Trust'],
-          datasets: [{
-            label: 'Israeli Sentiment',
-            data: [51, -82, -34, 67],
-            backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee']
-          }]
+          labels: ['Peace Desire', 'Hezbollah Role', 'Economy', 'US/Trump'],
+          datasets: [{ data: [51, -82, -34, 67], backgroundColor: ['#10b981', '#ef4444', '#b91c1c', '#22d3ee'] }]
         },
-        options: { responsive: true, plugins: { legend: { display: false }}}
+        options: { responsive: true, plugins: { legend: { display: false } }}
       });
     }
 
     // Initialize
     renderTopics();
     switchTab(0);
-    setTimeout(initCharts, 300);
+    setTimeout(initCharts, 400);
   </script>
 </body>
 </html>
